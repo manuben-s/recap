@@ -8,6 +8,9 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- In-browser .HEIC to JPEG decoder for Chrome, Firefox & Edge -->
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+
   <!-- Tactile Rubber-Stamp, Storybook & Handwritten Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -700,11 +703,11 @@
       'use strict';
 
       /* ======================================================================
-         1. STATIC CALENDAR CONFIGURATION (EDIT MEDIA FILE PATHS HERE!)
+         1. STATIC CALENDAR CONFIGURATION (EXACT REPOSITORY FILENAMES)
          ----------------------------------------------------------------------
-         Drop your photos (.jpg, .jpeg, .png, .webp) and videos (.mp4, .webm,
-         .mov) into a `media/` folder next to `index.html` in your GitHub repo.
-         Each day accepts 1 or 2 relative file paths in its `media` array.
+         Place your files in the repository root (or inside `media/`).
+         Supports .HEIC (auto-decoded in browser), .JPG/.jpg, .MOV/.mov/.MP4,
+         multi-photo grids (up to 8 Polaroids), and extensionless file `24`.
          ====================================================================== */
       const CALENDAR_DAYS = [
         {
@@ -712,7 +715,7 @@
           eclipseDate: '12 Aug 2026',
           eclipseType: 'Total Solar Eclipse (UK Deep Partial)',
           cardColor: '#eab64d',
-          media: ['media/day01_1.jpg', 'media/day01_2.jpg'],
+          media: ['1_1.HEIC', '1_2.HEIC'],
           story: 'I’m trying to get my mum to start doing things on her own. We went to make bird nesting boxes. She loved it. I think she’s building more momentum to create the life she wants, and it makes me happy.'
         },
         {
@@ -720,7 +723,7 @@
           eclipseDate: '28 Aug 2026',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['media/day02_1.jpg'],
+          media: ['2.HEIC'],
           story: 'Took my board ‘percebe mapuche’ out on the water. Went to a beach with zero waves since I’d already accepted I was just going to be paddling.'
         },
         {
@@ -728,7 +731,7 @@
           eclipseDate: '20 Feb 2027',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['media/day03_1.jpg', 'media/day03_2.jpg'],
+          media: ['3.HEIC'],
           story: 'There are really cool mushrooms in Cantabria.'
         },
         {
@@ -736,7 +739,7 @@
           eclipseDate: '2 Aug 2027',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#eab64d',
-          media: ['media/day04_1.jpg'],
+          media: ['4_1.JPG', '4_2.JPG'],
           story: 'Watched the film ‘La bola negra’. Tried to watch it all over again. A total masterpiece on so many levels.'
         },
         {
@@ -744,7 +747,7 @@
           eclipseDate: '12 Jan 2028',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['media/day05_1.jpg', 'media/day05_2.mp4'],
+          media: ['5_1.JPG', '5_2.JPG'],
           story: 'Went with my sister to her event to shoot photos and videos. Met some really lovely women there. Her work means a lot to her, so it was cool getting to share that side of her.'
         },
         {
@@ -752,7 +755,7 @@
           eclipseDate: '26 Jan 2028',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#82b07a',
-          media: ['media/day06_1.jpg'],
+          media: ['6.JPG'],
           story: 'Bought myself a recorder.'
         },
         {
@@ -760,7 +763,7 @@
           eclipseDate: '6 Jul 2028',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['media/day07_1.mp4'],
+          media: ['7.MOV'],
           story: 'Discovered one of the most satisfying sounds I’ve ever heard.'
         },
         {
@@ -768,7 +771,7 @@
           eclipseDate: '31 Dec 2028',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day08_1.jpg', 'media/day08_2.jpg'],
+          media: ['8.HEIC'],
           story: 'Created a signature look for myself (I’m strictly obsessed with orange and blue).'
         },
         {
@@ -776,7 +779,7 @@
           eclipseDate: '26 Jun 2029',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day09_1.jpg', 'media/day09_2.jpg'],
+          media: ['9.HEIC'],
           story: 'Went to a creative dance class with two friends. I got to improvise one-on-one with each of them at some point, which was really sweet. There also happened to be two guys sketching us, so we got to take a drawing home.'
         },
         {
@@ -784,7 +787,7 @@
           eclipseDate: '11 Jul 2029',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#eab64d',
-          media: ['media/day10_1.jpg', 'media/day10_2.jpg'],
+          media: ['10_1.HEIC', '10_2.jpg'],
           story: 'Printed my first test photos to sell. Wild seeing my photos in print for the first time. A few friends bought my very first prints, which was cute.'
         },
         {
@@ -792,7 +795,7 @@
           eclipseDate: '20 Dec 2029',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day11_1.jpg'],
+          media: ['11.HEIC'],
           story: 'Made a massive banana pancake.'
         },
         {
@@ -800,7 +803,7 @@
           eclipseDate: '1 Jun 2030',
           eclipseType: 'Annular Solar Eclipse (UK Partial)',
           cardColor: '#eab64d',
-          media: ['media/day12_1.jpg'],
+          media: ['12.HEIC'],
           story: 'My friends and I somehow managed to make the most boring bouquet of flowers any of us has ever seen.'
         },
         {
@@ -808,7 +811,7 @@
           eclipseDate: '15 Jun 2030',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['media/day13_1.jpg', 'media/day13_2.jpg'],
+          media: ['13.JPG'],
           story: 'Friends, Nicaraguan coconut rum, and Scrawl.'
         },
         {
@@ -816,7 +819,7 @@
           eclipseDate: '9 Dec 2030',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['media/day14_1.jpg'],
+          media: ['14.JPG'],
           story: 'Finally found my favourite socks in black. Opens up a whole new world of possibilities.'
         },
         {
@@ -824,7 +827,7 @@
           eclipseDate: '5 Jun 2031',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['media/day15_1.jpg', 'media/day15_2.jpg'],
+          media: ['15_1.JPG', '15_2.JPG'],
           story: 'My friend trusted me to design the first racket for his brand. He let me get weird with it, which made me feel strange and exposed, but they were happy with it. Same racket, two different faces.'
         },
         {
@@ -832,7 +835,7 @@
           eclipseDate: '30 Oct 2031',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['media/day16_1.jpg', 'media/day16_2.mp4'],
+          media: ['16.MOV'],
           story: 'My favourite DJ announced a Barcelona date at the very last minute. A friend trusted me with his first-ever clubbing experience. We all left buzzing, and Ale and I came out hyper-inspired.'
         },
         {
@@ -840,7 +843,7 @@
           eclipseDate: '25 Apr 2032',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day17_1.mp4'],
+          media: ['17_1.mov', '17_2.mov'],
           story: 'Testing out the camera and recorder to capture little bits! Ran into some technical hiccups so there are only fragments, but Hangover practice session vol. i rules.'
         },
         {
@@ -848,7 +851,7 @@
           eclipseDate: '18 Oct 2032',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day18_1.jpg', 'media/day18_2.jpg'],
+          media: ['18.HEIC'],
           story: 'Go-karting. My friend laughed at me because he’d never seen me scared before doing an activity. Had an absolute blast.'
         },
         {
@@ -856,7 +859,7 @@
           eclipseDate: '14 Apr 2033',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day19_1.jpg'],
+          media: ['19.HEIC'],
           story: 'Trying to keep making my own clothes.'
         },
         {
@@ -864,7 +867,7 @@
           eclipseDate: '8 Oct 2033',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['media/day20_1.jpg', 'media/day20_2.mp4'],
+          media: ['20.mov'],
           story: 'Bought myself a better mixer. Haven’t stopped practising.'
         },
         {
@@ -872,7 +875,7 @@
           eclipseDate: '20 Mar 2034',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#82b07a',
-          media: ['media/day21_1.jpg'],
+          media: ['21.MOV'],
           story: 'Reused my frog to test out some new stickers. At this point I probably can’t keep using it anymore, but the stickers are pure disco.'
         },
         {
@@ -880,7 +883,7 @@
           eclipseDate: '28 Sep 2034',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['media/day22_1.jpg', 'media/day22_2.jpg'],
+          media: ['22_1.HEIC', '22_2.MOV', '22_3.MP4'],
           story: 'Berlin. Ronya gave me makeup lessons. Would’ve never thought of double pink eyebrows.'
         },
         {
@@ -888,7 +891,7 @@
           eclipseDate: '22 Feb 2035',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['media/day23_1.jpg', 'media/day23_2.jpg'],
+          media: ['23_1.JPG', '23_2.JPG', '23_3.JPG', '23_4.JPG', '23_5.JPG', '23_6.JPG', '23_7.JPG', '23_8.JPG'],
           story: 'Finally scratching that itch and sending you a couple of photos from Nicaragua.'
         },
         {
@@ -896,7 +899,7 @@
           eclipseDate: '2 Sep 2035',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#eab64d',
-          media: ['media/day24_1.jpg'],
+          media: ['24'],
           story: 'Couldn’t pick just one summary song. Pick your fighter. They go from most introspective, to sad, to upbeat, to full party (top to bottom).'
         }
       ];
@@ -969,6 +972,61 @@
 
       function isVideoFile(filePath) {
         return /\.(mp4|webm|mov|m4v|ogg)(\?.*)?$/i.test(filePath);
+      }
+
+      function isHeicFile(filePath) {
+        return /\.(heic|heif)(\?.*)?$/i.test(filePath);
+      }
+
+      function getMediaCandidates(rawSrc) {
+        if (rawSrc === '24') {
+          return [
+            '24',
+            'media/24',
+            '24.png',
+            '24.PNG',
+            '24.jpg',
+            '24.JPG',
+            '24.jpeg',
+            '24.HEIC',
+            'media/24.png',
+            'media/24.PNG',
+            'media/24.jpg',
+            'media/24.JPG',
+            'media/24.jpeg',
+            'media/24.HEIC'
+          ];
+        }
+        if (!rawSrc.startsWith('media/')) {
+          return [rawSrc, `media/${rawSrc}`];
+        }
+        return [rawSrc];
+      }
+
+      // Cache converted .HEIC -> JPEG blob URLs so flipping doors is instantaneous
+      const heicBlobUrlCache = new Map();
+
+      async function resolveHeicBlobUrl(candidateUrl) {
+        if (heicBlobUrlCache.has(candidateUrl)) {
+          return heicBlobUrlCache.get(candidateUrl);
+        }
+        if (typeof window.heic2any !== 'function') {
+          throw new Error('heic2any library unavailable');
+        }
+        const response = await fetch(candidateUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} for ${candidateUrl}`);
+        }
+        const blob = await response.blob();
+        const converted = await window.heic2any({
+          blob,
+          toType: 'image/jpeg',
+          quality: 0.88
+        });
+        const jpegBlob = Array.isArray(converted) ? converted[0] : converted;
+        const objectUrl = URL.createObjectURL(jpegBlob);
+        heicBlobUrlCache.set(candidateUrl, objectUrl);
+        return objectUrl;
       }
 
       /* ======================================================================
@@ -1499,10 +1557,13 @@
          9. DAYS 1–24 STATIC POLAROID SCRAPBOOK PAGE
          ====================================================================== */
       function renderDayScrapbookPage(container, item) {
-        const mediaList = Array.isArray(item.media) ? item.media.slice(0, 2) : [];
-        const gridColsClass = mediaList.length === 1
-          ? 'grid-cols-1 max-w-lg mx-auto'
-          : 'grid-cols-1 md:grid-cols-2';
+        const mediaList = Array.isArray(item.media) ? item.media : [];
+        let gridColsClass = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+        if (mediaList.length === 1) {
+          gridColsClass = 'grid-cols-1 max-w-lg mx-auto';
+        } else if (mediaList.length === 2 || mediaList.length === 4) {
+          gridColsClass = 'grid-cols-1 md:grid-cols-2';
+        }
 
         container.innerHTML = `
           <!-- Hand-Stamped UK Eclipse Note & Personal Story Card -->
@@ -1529,46 +1590,115 @@
             </div>
           </div>
 
-          <!-- 1 or 2 Taped Static Polaroid Frames -->
-          <div class="grid ${gridColsClass} gap-6 pt-2">
-            ${mediaList.map((src, idx) => buildStaticPolaroidHTML(item, src, idx)).join('')}
+          <!-- Responsive Taped Static Polaroid Frames (1, 2, 3, or 8 items) -->
+          <div class="grid ${gridColsClass} gap-5 sm:gap-6 pt-2">
+            ${mediaList.map((src, idx) => buildStaticPolaroidHTML(item, src, idx, mediaList.length)).join('')}
           </div>
         `;
 
-        // Attach lightbox & graceful vintage darkroom fallback handlers
-        mediaList.forEach((src, idx) => {
+        // Attach candidate fallback, .HEIC browser decoding, and Lightbox handlers
+        mediaList.forEach((rawSrc, idx) => {
           const mediaEl = document.getElementById(`static-media-${item.day}-${idx}`);
           const fallbackEl = document.getElementById(`static-fallback-${item.day}-${idx}`);
+          const developingBadgeEl = document.getElementById(`static-developing-${item.day}-${idx}`);
           if (!mediaEl) return;
 
-          mediaEl.addEventListener('error', () => {
+          const candidates = getMediaCandidates(rawSrc);
+          let candidateIdx = 0;
+
+          const showDarkroomFallback = () => {
+            if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
             mediaEl.classList.add('hidden');
             if (fallbackEl) fallbackEl.classList.remove('hidden');
-          });
+          };
 
-          if (!isVideoFile(src)) {
+          if (isVideoFile(rawSrc)) {
+            mediaEl.addEventListener('error', () => {
+              candidateIdx += 1;
+              if (candidateIdx < candidates.length) {
+                mediaEl.src = candidates[candidateIdx];
+              } else {
+                showDarkroomFallback();
+              }
+            });
+          } else {
+            let isDecodingHeic = false;
+
+            const tryNextImageCandidate = async () => {
+              if (isDecodingHeic) return;
+              const failedCand = candidates[candidateIdx];
+
+              // If native <img> failed on a .HEIC file (or extensionless '24'), try in-browser heic2any conversion
+              if (
+                failedCand &&
+                (isHeicFile(failedCand) || failedCand === '24' || failedCand === 'media/24')
+              ) {
+                isDecodingHeic = true;
+                if (developingBadgeEl) developingBadgeEl.classList.remove('hidden');
+                try {
+                  const blobUrl = await resolveHeicBlobUrl(failedCand);
+                  isDecodingHeic = false;
+                  if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
+                  mediaEl.src = blobUrl;
+                  return;
+                } catch (err) {
+                  isDecodingHeic = false;
+                  if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
+                }
+              }
+
+              candidateIdx += 1;
+              if (candidateIdx < candidates.length) {
+                const nextCand = candidates[candidateIdx];
+                if (isHeicFile(nextCand) && heicBlobUrlCache.has(nextCand)) {
+                  mediaEl.src = heicBlobUrlCache.get(nextCand);
+                } else {
+                  mediaEl.src = nextCand;
+                }
+              } else {
+                showDarkroomFallback();
+              }
+            };
+
+            mediaEl.addEventListener('load', () => {
+              if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
+            });
+
+            mediaEl.addEventListener('error', () => {
+              tryNextImageCandidate();
+            });
+
             mediaEl.addEventListener('click', () => {
-              openLightbox(src, `Day ${item.day} (${item.eclipseDate}) — ${item.eclipseType}`);
+              const resolvedUrl = mediaEl.currentSrc || mediaEl.src;
+              if (resolvedUrl) {
+                openLightbox(
+                  resolvedUrl,
+                  `Day ${item.day} (${item.eclipseDate}) — ${item.eclipseType}`
+                );
+              }
             });
           }
         });
       }
 
-      function buildStaticPolaroidHTML(item, src, idx) {
-        const tiltClass = idx === 0 ? '-rotate-1' : 'rotate-1';
+      function buildStaticPolaroidHTML(item, src, idx, totalCount = 1) {
+        const tilts = ['-rotate-1', 'rotate-1', '-rotate-0.5', 'rotate-0.5'];
+        const tiltClass = tilts[idx % tilts.length];
         const isVideo = isVideoFile(src);
+        const wellHeightClass = totalCount >= 3 ? 'h-56 sm:h-60' : 'h-64 sm:h-72';
+        const initialCand = getMediaCandidates(src)[0];
 
         return `
           <div class="relative bg-[#fffdf8] border-2 border-craft-ink rounded-sm p-3.5 pb-4 shadow-[0_8px_18px_rgba(35,27,24,0.28)] ${tiltClass} flex flex-col justify-between">
-            <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 ${idx === 0 ? 'rotate-2' : '-rotate-2'}"></div>
+            <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 ${idx % 2 === 0 ? 'rotate-2' : '-rotate-2'}"></div>
 
             <!-- Polaroid Media Well -->
-            <div class="relative bg-[#1c1714] border border-craft-ink/40 h-64 sm:h-72 flex items-center justify-center overflow-hidden">
+            <div class="relative bg-[#1c1714] border border-craft-ink/40 ${wellHeightClass} flex items-center justify-center overflow-hidden">
               ${
                 isVideo
                   ? `<video
                       id="static-media-${item.day}-${idx}"
-                      src="${escapeAttr(src)}"
+                      src="${escapeAttr(initialCand)}"
                       controls
                       playsinline
                       preload="metadata"
@@ -1576,14 +1706,23 @@
                     ></video>`
                   : `<img
                       id="static-media-${item.day}-${idx}"
-                      src="${escapeAttr(src)}"
+                      src="${escapeAttr(initialCand)}"
                       alt="Day ${item.day} keepsake ${idx + 1}"
                       title="Click to enlarge Polaroid"
                       class="w-full h-full object-contain cursor-zoom-in hover:scale-[1.02] transition-transform"
                     />`
               }
 
-              <!-- Vintage Darkroom Contact-Sheet Fallback (shown automatically if file isn't in media/ yet) -->
+              <!-- Subtle Developing Film Overlay while decoding .HEIC in Chrome/Firefox -->
+              <div
+                id="static-developing-${item.day}-${idx}"
+                class="hidden absolute inset-0 bg-[#231b18]/85 text-craft-ochre flex flex-col items-center justify-center p-3 text-center pointer-events-none"
+              >
+                <div class="text-2xl animate-bounce mb-1">🎞️</div>
+                <div class="font-stamp text-xs tracking-wide">Developing .HEIC film…</div>
+              </div>
+
+              <!-- Vintage Darkroom Contact-Sheet Fallback (shown if file is missing) -->
               <div
                 id="static-fallback-${item.day}-${idx}"
                 class="hidden w-full h-full bg-[#efe4cf] text-craft-ink p-4 flex flex-col items-center justify-center text-center border-2 border-dashed border-[#a68967]"
@@ -1593,7 +1732,7 @@
                   Darkroom Contact Sheet #${idx + 1}
                 </div>
                 <p class="font-hand text-xs text-[#5b4431] mt-1 max-w-[230px]">
-                  Place your file at this path in your GitHub repo to develop this Polaroid:
+                  Place this file in your repository root (or inside <code>media/</code>) to develop this Polaroid:
                 </p>
                 <code class="mt-2 px-2.5 py-1 rounded bg-craft-ink text-craft-ochre font-stamp text-xs">
                   ${escapeHTML(src)}
