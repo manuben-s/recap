@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UK Eclipse Advent Calendar — 25 Handcrafted Doors</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tactile Rubber-Stamp, Storybook & Handwritten Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Patrick+Hand&family=Special+Elite&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            storybook: ['Fraunces', 'Georgia', 'serif'],
+            stamp: ['Special Elite', 'Courier New', 'monospace'],
+            hand: ['Patrick Hand', 'cursive', 'sans-serif'],
+            script: ['Caveat', 'cursive', 'sans-serif'],
+          },
+          colors: {
+            craft: {
+              terracotta: '#c84232',
+              terracottaDeep: '#9a2c20',
+              kraft: '#d7b387',
+              kraftDark: '#b28859',
+              cream: '#f6efe2',
+              paper: '#fbf7ef',
+              ink: '#231b18',
+              ochre: '#eab64d',
+              sky: '#7eb2cf',
+              sage: '#82b07a',
+              lavender: '#a995c9',
+              coral: '#e07a5f',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       ANALOG CARDBOARD, COTTON SCRAPBOOK PAPER & HAND-PAINTED GOUACHE TEXTURES
+       ========================================================================== */
+    :root {
+      --ink: #231b18;
+      --terracotta: #c84232;
+      --kraft: #d7b387;
+      --cream-paper: #f6efe2;
+      --ochre: #eab64d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: #141722;
+      color: var(--ink);
+      font-family: 'Patrick Hand', cursive, sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hand-painted gouache & watercolor cosmic canvas backdrop */
+    #gouache-cosmos-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    /* Subtle analog paper tooth overlay */
+    .paper-tooth-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        radial-gradient(rgba(255, 248, 232, 0.14) 1px, transparent 0),
+        radial-gradient(rgba(24, 17, 13, 0.22) 1px, transparent 0);
+      background-size: 19px 19px, 27px 27px;
+      background-position: 0 0, 9px 13px;
+    }
+
+    /* Warm wooden tabletop surface on which the open tri-fold calendar stands */
+    .wooden-tabletop {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 130px;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(52, 32, 18, 0.08) 0px,
+          rgba(52, 32, 18, 0.08) 2px,
+          transparent 2px,
+          transparent 22px
+        ),
+        linear-gradient(180deg, rgba(132, 91, 56, 0) 0%, rgba(118, 78, 46, 0.88) 32%, #5e3c22 100%);
+    }
+
+    /* Matte printed terracotta-red chipboard texture */
+    .terracotta-chipboard {
+      background-color: #c84232;
+      background-image:
+        radial-gradient(rgba(255, 238, 215, 0.13) 1px, transparent 0),
+        radial-gradient(rgba(45, 14, 10, 0.17) 1px, transparent 0),
+        linear-gradient(165deg, rgba(255, 244, 224, 0.09) 0%, rgba(40, 12, 8, 0.18) 100%);
+      background-size: 13px 13px, 21px 21px, 100% 100%;
+      background-position: 0 0, 7px 9px, 0 0;
+    }
+
+    /* Recycled speckled kraft cardboard texture */
+    .kraft-cardboard {
+      background-color: #d7b387;
+      background-image:
+        radial-gradient(rgba(74, 48, 24, 0.17) 1px, transparent 0),
+        radial-gradient(rgba(255, 248, 234, 0.25) 1px, transparent 0),
+        linear-gradient(180deg, rgba(255, 250, 240, 0.16) 0%, rgba(112, 76, 40, 0.15) 100%);
+      background-size: 11px 11px, 17px 17px, 100% 100%;
+      background-position: 0 0, 5px 7px, 0 0;
+    }
+
+    /* Cotton-rag cream scrapbook paper texture */
+    .cotton-paper {
+      background-color: #f6efe2;
+      background-image:
+        radial-gradient(rgba(94, 72, 52, 0.09) 1px, transparent 0),
+        radial-gradient(rgba(185, 155, 120, 0.12) 1px, transparent 0),
+        linear-gradient(180deg, #fbf7ef 0%, #efe3cd 100%);
+      background-size: 16px 16px, 25px 25px, 100% 100%;
+      background-position: 0 0, 8px 11px, 0 0;
+    }
+
+    /* Tactile hand-inked border & layered physical shadow */
+    .handmade-border {
+      border: 2.5px solid var(--ink);
+      box-shadow:
+        0 4px 0 rgba(35, 27, 24, 0.85),
+        0 12px 24px rgba(12, 8, 6, 0.38);
+    }
+
+    /* Stamped paper/cardboard button */
+    .craft-btn {
+      border: 2.5px solid var(--ink);
+      box-shadow: 0 3px 0 var(--ink);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease;
+    }
+
+    .craft-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 0 var(--ink);
+    }
+
+    .craft-btn:active:not(:disabled) {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 var(--ink);
+    }
+
+    .craft-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Translucent masking / washi tape strips */
+    .washi-tape {
+      position: absolute;
+      height: 22px;
+      width: 78px;
+      background-color: rgba(235, 217, 174, 0.8);
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.24) 0px,
+        rgba(255, 255, 255, 0.24) 4px,
+        transparent 4px,
+        transparent 8px
+      );
+      border-left: 1.5px dashed rgba(95, 76, 52, 0.45);
+      border-right: 1.5px dashed rgba(95, 76, 52, 0.45);
+      box-shadow: 0 1px 3px rgba(35, 27, 24, 0.22);
+      pointer-events: none;
+      z-index: 15;
+    }
+
+    /* ==========================================================================
+       TRI-FOLD CARDBOARD ADVENT CALENDAR STRUCTURE
+       ========================================================================== */
+    .trifold-stage {
+      perspective: 2200px;
+    }
+
+    .trifold-assembly {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Angled Left & Right Space-Sunflower Wallpaper Wings */
+    .calendar-wing {
+      width: 148px;
+      flex-shrink: 0;
+      position: relative;
+      border-top: 3px solid var(--ink);
+      border-bottom: 3px solid var(--ink);
+      box-shadow: 0 18px 34px rgba(12, 8, 6, 0.55);
+      overflow: hidden;
+    }
+
+    .calendar-wing-left {
+      border-left: 3px solid var(--ink);
+      border-right: 2px dashed rgba(35, 27, 24, 0.68);
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      transform-origin: right center;
+      transform: rotateY(26deg);
+      box-shadow:
+        inset -14px 0 22px rgba(35, 20, 14, 0.36),
+        -10px 18px 28px rgba(10, 6, 4, 0.52);
+    }
+
+    .calendar-wing-right {
+      border-right: 3px solid var(--ink);
+      border-left: 2px dashed rgba(35, 27, 24, 0.68);
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      transform-origin: left center;
+      transform: rotateY(-26deg);
+      box-shadow:
+        inset 14px 0 22px rgba(35, 20, 14, 0.36),
+        10px 18px 28px rgba(10, 6, 4, 0.52);
+    }
+
+    /* Central Terracotta Chipboard Panel */
+    .calendar-center-board {
+      flex: 1;
+      max-width: 980px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      box-shadow:
+        0 22px 44px rgba(10, 6, 4, 0.68),
+        inset 0 2px 0 rgba(255, 242, 220, 0.25),
+        inset 0 -4px 0 rgba(70, 20, 14, 0.55);
+      position: relative;
+      z-index: 5;
+    }
+
+    /* ==========================================================================
+       3D DIE-CUT HINGED ADVENT DOORS (PERFORATED CUT LINES + THUMB NOTCH)
+       ========================================================================== */
+    .advent-door-slot {
+      perspective: 950px;
+      position: relative;
+      aspect-ratio: 1 / 1.08;
+      min-height: 146px;
+    }
+
+    /* Recessed shadow-box pocket revealed behind swung-open flap */
+    .door-recessed-pocket {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 2px solid #3a2318;
+      background-color: #f3e8d2;
+      background-image:
+        radial-gradient(rgba(74, 52, 34, 0.1) 1px, transparent 0),
+        linear-gradient(135deg, rgba(35, 24, 16, 0.28) 0%, rgba(255, 250, 240, 0.22) 55%, rgba(35, 24, 16, 0.18) 100%);
+      background-size: 12px 12px, 100% 100%;
+      box-shadow:
+        inset 4px 5px 12px rgba(28, 17, 11, 0.56),
+        inset -2px -2px 6px rgba(255, 252, 244, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    /* Hinged die-cut cardboard flap swinging on left crease */
+    .door-cardboard-flap {
+      position: absolute;
+      inset: 0;
+      border-radius: 6px;
+      border: 2.5px dashed rgba(35, 27, 24, 0.8);
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      transition: transform 0.62s cubic-bezier(0.34, 1.38, 0.54, 1), box-shadow 0.45s ease;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow:
+        1px 2px 0 rgba(35, 27, 24, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    .door-cardboard-flap:hover {
+      transform: rotateY(-14deg);
+      box-shadow:
+        6px 6px 12px rgba(25, 14, 10, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.46);
+    }
+
+    /* Opened state: door stays swung open on its left hinge */
+    .advent-door-slot.is-open .door-cardboard-flap {
+      transform: rotateY(-116deg);
+      box-shadow: -6px 8px 14px rgba(20, 12, 8, 0.5);
+    }
+
+    .advent-door-slot.is-open .door-cardboard-flap:hover {
+      transform: rotateY(-106deg);
+    }
+
+    .door-flap-front,
+    .door-flap-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .door-flap-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 6px 7px 6px;
+      background-image:
+        radial-gradient(rgba(35, 27, 24, 0.08) 1px, transparent 0),
+        radial-gradient(rgba(255, 255, 255, 0.22) 1px, transparent 0);
+      background-size: 11px 11px, 17px 17px;
+      background-position: 0 0, 5px 6px;
+    }
+
+    /* Raw recycled kraft pulp backing revealed on inside of open door */
+    .door-flap-back {
+      transform: rotateY(180deg);
+      background-color: #d6b286;
+      background-image:
+        radial-gradient(rgba(74, 48, 24, 0.18) 1px, transparent 0),
+        linear-gradient(135deg, rgba(255, 248, 234, 0.25) 0%, rgba(110, 74, 38, 0.22) 100%);
+      background-size: 10px 10px, 100% 100%;
+      border: 2px solid rgba(35, 27, 24, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+    }
+
+    /* Semicircular thumb-notch cutout on right edge of each door */
+    .finger-notch {
+      position: absolute;
+      right: -3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 11px;
+      height: 22px;
+      background-color: #4a241b;
+      border-top-left-radius: 999px;
+      border-bottom-left-radius: 999px;
+      border-left: 2px solid rgba(35, 27, 24, 0.75);
+      border-top: 2px solid rgba(35, 27, 24, 0.75);
+      border-bottom: 2px solid rgba(35, 27, 24, 0.75);
+      box-shadow: inset 2px 0 3px rgba(0, 0, 0, 0.45);
+      z-index: 12;
+      pointer-events: none;
+    }
+
+    @keyframes gentleBob {
+      0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+      50% { transform: translateY(-3px) rotate(1.5deg); }
+    }
+
+    .sketch-bob {
+      animation: gentleBob 3.8s ease-in-out infinite;
+    }
+
+    @keyframes modalUnfold {
+      0% {
+        opacity: 0;
+        transform: scale(0.94) translateY(12px) rotate(-0.5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(0deg);
+      }
+    }
+
+    .scrapbook-unfold {
+      animation: modalUnfold 0.26s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes paperConfettiFall {
+      0% {
+        transform: translateY(-20px) rotate(0deg) scale(0.8);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(260px) rotate(320deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    .paper-confetti {
+      position: absolute;
+      pointer-events: none;
+      animation: paperConfettiFall 2.2s ease-out forwards;
+    }
+
+    /* Custom tactile scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e6dac3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #9e7b56;
+      border-radius: 6px;
+      border: 2px solid #e6dac3;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #c84232;
+    }
+  </style>
+</head>
+<body class="selection:bg-craft-ochre selection:text-craft-ink">
+
+  <!-- SVG Paper Grain Filter -->
+  <svg width="0" height="0" class="hidden" aria-hidden="true">
+    <defs>
+      <filter id="paper-grain-filter" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="17" result="noise" />
+        <feColorMatrix type="matrix" values="
+          1 0 0 0 0
+          0 1 0 0 0
+          0 0 1 0 0
+          0 0 0 0.08 0" in="noise" result="softNoise" />
+        <feComposite in="SourceGraphic" in2="softNoise" operator="over" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Hand-painted Gouache & Watercolor Cosmic Backdrop -->
+  <canvas id="gouache-cosmos-canvas"></canvas>
+  <div class="paper-tooth-overlay"></div>
+  <div class="wooden-tabletop"></div>
+
+  <!-- Main Container -->
+  <div class="relative z-10 max-w-[1340px] mx-auto px-2 sm:px-5 pt-4 sm:pt-6 pb-12">
+
+    <!-- ======================================================================
+         HANDCRAFTED STORYBOOK HEADER
+         ====================================================================== -->
+    <header class="max-w-4xl mx-auto mb-5 sm:mb-6">
+      <div class="relative kraft-cardboard handmade-border rounded-xl px-4 py-3 sm:px-6 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <!-- Decorative masking tape corners -->
+        <div class="washi-tape -top-3 left-6 -rotate-3"></div>
+        <div class="washi-tape -top-3 right-8 rotate-2 hidden sm:block"></div>
+
+        <div class="flex items-center gap-3.5 text-center sm:text-left">
+          <div id="header-sunflower-stamp" class="w-14 h-14 sm:w-16 sm:h-16 rounded-full cotton-paper border-[2.5px] border-craft-ink shadow-[0_3px_0_#231b18] flex items-center justify-center shrink-0"></div>
+          <div>
+            <div class="inline-block px-2.5 py-0.5 rounded bg-craft-terracotta text-craft-paper font-stamp text-[11px] sm:text-xs tracking-wider uppercase border border-craft-ink mb-1">
+              UK Eclipses Edition • 2026–2035
+            </div>
+            <h1 class="font-storybook font-extrabold text-2xl sm:text-3xl lg:text-4xl text-craft-ink leading-none tracking-tight">
+              UK Eclipse Advent Calendar
+            </h1>
+            <p class="font-script text-lg sm:text-xl text-[#4a3728] mt-0.5 leading-tight">
+              25 hand-cut doors of future UK eclipses, snapshots &amp; one final October mystery
+            </p>
+          </div>
+        </div>
+
+        <!-- Subtle Progress Stamp & Tiny Corner Controls -->
+        <div class="flex items-center gap-2.5 shrink-0">
+          <div class="px-3 py-1 rounded-lg cotton-paper border-2 border-craft-ink shadow-[0_2px_0_#231b18] text-center">
+            <div class="font-stamp text-[10px] uppercase text-[#6e533c]">Opened</div>
+            <div id="opened-counter" class="font-storybook font-bold text-sm sm:text-base text-craft-terracotta">0 / 25</div>
+          </div>
+
+          <button
+            id="btn-toggle-sound"
+            type="button"
+            title="Toggle paper & chime sound effects"
+            class="craft-btn px-2.5 py-2 rounded-lg cotton-paper text-craft-ink font-stamp text-xs cursor-pointer"
+          >
+            <span id="sound-icon">🔔</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================================================
+         TRI-FOLD CARDBOARD ADVENT CALENDAR (LEFT WING + 5x5 GRID + RIGHT WING)
+         ====================================================================== -->
+    <main class="trifold-stage">
+      <div class="trifold-assembly">
+
+        <!-- LEFT ANGLED SPACE-SUNFLOWER WALLPAPER WING -->
+        <aside class="hidden lg:block calendar-wing calendar-wing-left terracotta-chipboard" aria-hidden="true">
+          <div id="left-wing-pattern" class="w-full h-full"></div>
+          <!-- Red satin ribbon tie peeking from bottom-left wing -->
+          <div class="absolute bottom-3 -left-2 w-12 h-5 bg-[#a61c1c] border-y-2 border-craft-ink -rotate-12 shadow-md"></div>
+        </aside>
+
+        <!-- CENTRAL TERRACOTTA-RED CHIPBOARD BOARD (25 DIE-CUT HINGED DOORS) -->
+        <section class="calendar-center-board terracotta-chipboard p-3 sm:p-5 lg:p-6" filter="url(#paper-grain-filter)">
+          <!-- Printed Cardboard Top Trim -->
+          <div class="flex items-center justify-between text-craft-cream/90 font-stamp text-[11px] sm:text-xs tracking-wider uppercase mb-3 px-1">
+            <span>★ Hand-Printed Cardboard Edition ★</span>
+            <span class="hidden sm:inline">Tap any perforated door to swing open</span>
+            <span>Doors 1–25</span>
+          </div>
+
+          <!-- 5x5 Grid of 25 Die-Cut Doors -->
+          <div
+            id="calendar-doors-grid"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5 sm:gap-3.5 lg:gap-4"
+          >
+            <!-- Rendered dynamically -->
+          </div>
+
+          <!-- Unobtrusive Corner "Reset Doors" Link -->
+          <div class="mt-3.5 pt-2 border-t border-craft-cream/20 flex items-center justify-between text-[11px] text-craft-cream/85 font-stamp">
+            <span>UK Solar &amp; Lunar Eclipses (2026–2035)</span>
+            <button
+              id="btn-reset-doors"
+              type="button"
+              class="underline decoration-dotted hover:text-craft-ochre transition-colors cursor-pointer"
+            >
+              Reset Doors
+            </button>
+          </div>
+        </section>
+
+        <!-- RIGHT ANGLED SPACE-SUNFLOWER WALLPAPER WING -->
+        <aside class="hidden lg:block calendar-wing calendar-wing-right terracotta-chipboard" aria-hidden="true">
+          <div id="right-wing-pattern" class="w-full h-full"></div>
+        </aside>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ========================================================================
+       SCRAPBOOK & HANGMAN MODAL (DOORS 1–24 POLAROIDS + DOOR 25 HANGMAN)
+       ======================================================================== -->
+  <div
+    id="scrapbook-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-5 bg-[#120d0a]/82 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="scrapbook-unfold relative w-full max-w-4xl max-h-[93vh] flex flex-col cotton-paper handmade-border rounded-2xl overflow-hidden">
+
+      <!-- Scrapbook Top Navigation Bar (Left / Right Door Cycling) -->
+      <div class="kraft-cardboard border-b-[2.5px] border-craft-ink px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-2 shrink-0">
+        <!-- Previous Door Button -->
+        <button
+          id="btn-prev-door"
+          type="button"
+          class="craft-btn px-3 sm:px-4 py-1.5 rounded-lg cotton-paper text-craft-ink font-stamp text-xs sm:text-sm flex items-center gap-1.5 cursor-pointer"
+        >
+          <span>←</span>
+          <span>Previous</span>
+        </button>
+
+        <!-- Stamped Door Title -->
+        <div class="text-center px-2 flex-1 min-w-[190px]">
+          <div class="inline-flex items-center gap-2">
+            <span id="modal-door-stamp" class="px-2.5 py-0.5 rounded bg-craft-terracotta text-white font-stamp text-xs border border-craft-ink">
+              DOOR 1 OF 25
+            </span>
+            <span class="px-2 py-0.5 rounded bg-craft-sage text-craft-ink font-stamp text-[11px] border border-craft-ink">
+              OPENED ✓
+            </span>
+          </div>
+          <h2 id="modal-door-heading" class="font-storybook font-bold text-lg sm:text-2xl text-craft-ink mt-0.5 leading-tight">
+            12 Aug 2026 — Total Solar Eclipse (UK Deep Partial)
+          </h2>
+        </div>
+
+        <!-- Next Door + Close Modal Buttons -->
+        <div class="flex items-center gap-2">
+          <button
+            id="btn-next-door"
+            type="button"
+            class="craft-btn px-3 sm:px-4 py-1.5 rounded-lg bg-craft-ochre text-craft-ink font-stamp text-xs sm:text-sm flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>Next</span>
+            <span>→</span>
+          </button>
+
+          <button
+            id="btn-close-modal"
+            type="button"
+            aria-label="Close scrapbook"
+            class="craft-btn w-9 h-9 rounded-lg bg-craft-terracotta text-white font-stamp text-base flex items-center justify-center cursor-pointer"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Scrapbook Page Body -->
+      <div id="modal-page-body" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-5 relative">
+        <!-- Populated dynamically for Doors 1–24 or Door 25 -->
+      </div>
+
+      <!-- Scrapbook Footer Strip -->
+      <div class="bg-[#ede2cd] border-t-2 border-craft-ink px-4 py-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[#594330] font-hand shrink-0">
+        <span>Use ← Previous / Next → buttons (or Left / Right arrow keys) to flip between doors.</span>
+        <span class="font-bold text-craft-terracotta">Visited doors stay swung open on the calendar!</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HANDMADE RESET DOORS DIALOG (NO NATIVE CONFIRM())
+       ======================================================================== -->
+  <div
+    id="reset-modal"
+    class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-[#120d0a]/75"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="scrapbook-unfold w-full max-w-md cotton-paper handmade-border rounded-2xl p-6 text-center relative">
+      <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 -rotate-2"></div>
+      <div class="text-3xl mb-2">📦</div>
+      <h3 class="font-storybook font-bold text-xl text-craft-ink mb-2">
+        Fold all 25 cardboard doors shut?
+      </h3>
+      <p class="font-hand text-base text-[#4e3b2b] mb-5">
+        This will close all swung-open doors on the front of the calendar so you can open them fresh again.
+      </p>
+      <div class="flex items-center justify-center gap-3">
+        <button
+          id="btn-reset-cancel"
+          type="button"
+          class="craft-btn px-5 py-2 rounded-lg bg-[#e6d5bc] text-craft-ink font-stamp text-xs sm:text-sm cursor-pointer"
+        >
+          Keep Open
+        </button>
+        <button
+          id="btn-reset-confirm"
+          type="button"
+          class="craft-btn px-5 py-2 rounded-lg bg-craft-terracotta text-white font-stamp text-xs sm:text-sm cursor-pointer"
+        >
+          Yes, Close Doors
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       LIGHTBOX FOR FULL-SIZE PHOTO VIEWING
+       ======================================================================== -->
+  <div
+    id="lightbox-modal"
+    class="fixed inset-0 z-[70] hidden items-center justify-center p-4 bg-[#120d0a]/90 cursor-zoom-out"
+  >
+    <button
+      id="btn-close-lightbox"
+      type="button"
+      class="craft-btn absolute top-4 right-4 w-10 h-10 rounded-lg bg-craft-terracotta text-white font-stamp flex items-center justify-center cursor-pointer"
+    >
+      ✕
+    </button>
+    <div class="cotton-paper p-3 pb-5 rounded-md border-[3px] border-craft-ink shadow-2xl max-w-full max-h-[90vh] flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="Enlarged Polaroid memory" class="max-w-full max-h-[80vh] object-contain border border-craft-ink/30" />
+      <p id="lightbox-caption" class="font-script text-xl text-craft-ink mt-2 text-center"></p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       APPLICATION SCRIPT (STATIC CONFIG + HANDCRAFTED INTERACTIONS)
+       ======================================================================== -->
+  <script>
+    (() => {
+      'use strict';
+
+      /* ======================================================================
+         1. STATIC CALENDAR CONFIGURATION (EDIT MEDIA FILE PATHS HERE!)
+         ----------------------------------------------------------------------
+         Drop your photos (.jpg, .jpeg, .png, .webp) and videos (.mp4, .webm,
+         .mov) into a `media/` folder next to `index.html` in your GitHub repo.
+         Each day accepts 1 or 2 relative file paths in its `media` array.
+         ====================================================================== */
+      const CALENDAR_DAYS = [
+        {
+          day: 1,
+          eclipseDate: '12 Aug 2026',
+          eclipseType: 'Total Solar Eclipse (UK Deep Partial)',
+          cardColor: '#eab64d',
+          media: ['media/day01_1.jpg', 'media/day01_2.jpg'],
+          story: 'I’m trying to get my mum to start doing things on her own. We went to make bird nesting boxes. She loved it. I think she’s building more momentum to create the life she wants, and it makes me happy.'
+        },
+        {
+          day: 2,
+          eclipseDate: '28 Aug 2026',
+          eclipseType: 'Partial Lunar Eclipse',
+          cardColor: '#7eb2cf',
+          media: ['media/day02_1.jpg'],
+          story: 'Took my board ‘percebe mapuche’ out on the water. Went to a beach with zero waves since I’d already accepted I was just going to be paddling.'
+        },
+        {
+          day: 3,
+          eclipseDate: '20 Feb 2027',
+          eclipseType: 'Penumbral Lunar Eclipse',
+          cardColor: '#a995c9',
+          media: ['media/day03_1.jpg', 'media/day03_2.jpg'],
+          story: 'There are really cool mushrooms in Cantabria.'
+        },
+        {
+          day: 4,
+          eclipseDate: '2 Aug 2027',
+          eclipseType: 'Partial Solar Eclipse',
+          cardColor: '#eab64d',
+          media: ['media/day04_1.jpg'],
+          story: 'Watched the film ‘La bola negra’. Tried to watch it all over again. A total masterpiece on so many levels.'
+        },
+        {
+          day: 5,
+          eclipseDate: '12 Jan 2028',
+          eclipseType: 'Partial Lunar Eclipse',
+          cardColor: '#7eb2cf',
+          media: ['media/day05_1.jpg', 'media/day05_2.mp4'],
+          story: 'Went with my sister to her event to shoot photos and videos. Met some really lovely women there. Her work means a lot to her, so it was cool getting to share that side of her.'
+        },
+        {
+          day: 6,
+          eclipseDate: '26 Jan 2028',
+          eclipseType: 'Partial Solar Eclipse',
+          cardColor: '#82b07a',
+          media: ['media/day06_1.jpg'],
+          story: 'Bought myself a recorder.'
+        },
+        {
+          day: 7,
+          eclipseDate: '6 Jul 2028',
+          eclipseType: 'Partial Lunar Eclipse',
+          cardColor: '#7eb2cf',
+          media: ['media/day07_1.mp4'],
+          story: 'Discovered one of the most satisfying sounds I’ve ever heard.'
+        },
+        {
+          day: 8,
+          eclipseDate: '31 Dec 2028',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day08_1.jpg', 'media/day08_2.jpg'],
+          story: 'Created a signature look for myself (I’m strictly obsessed with orange and blue).'
+        },
+        {
+          day: 9,
+          eclipseDate: '26 Jun 2029',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day09_1.jpg', 'media/day09_2.jpg'],
+          story: 'Went to a creative dance class with two friends. I got to improvise one-on-one with each of them at some point, which was really sweet. There also happened to be two guys sketching us, so we got to take a drawing home.'
+        },
+        {
+          day: 10,
+          eclipseDate: '11 Jul 2029',
+          eclipseType: 'Partial Solar Eclipse',
+          cardColor: '#eab64d',
+          media: ['media/day10_1.jpg', 'media/day10_2.jpg'],
+          story: 'Printed my first test photos to sell. Wild seeing my photos in print for the first time. A few friends bought my very first prints, which was cute.'
+        },
+        {
+          day: 11,
+          eclipseDate: '20 Dec 2029',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day11_1.jpg'],
+          story: 'Made a massive banana pancake.'
+        },
+        {
+          day: 12,
+          eclipseDate: '1 Jun 2030',
+          eclipseType: 'Annular Solar Eclipse (UK Partial)',
+          cardColor: '#eab64d',
+          media: ['media/day12_1.jpg'],
+          story: 'My friends and I somehow managed to make the most boring bouquet of flowers any of us has ever seen.'
+        },
+        {
+          day: 13,
+          eclipseDate: '15 Jun 2030',
+          eclipseType: 'Partial Lunar Eclipse',
+          cardColor: '#7eb2cf',
+          media: ['media/day13_1.jpg', 'media/day13_2.jpg'],
+          story: 'Friends, Nicaraguan coconut rum, and Scrawl.'
+        },
+        {
+          day: 14,
+          eclipseDate: '9 Dec 2030',
+          eclipseType: 'Penumbral Lunar Eclipse',
+          cardColor: '#a995c9',
+          media: ['media/day14_1.jpg'],
+          story: 'Finally found my favourite socks in black. Opens up a whole new world of possibilities.'
+        },
+        {
+          day: 15,
+          eclipseDate: '5 Jun 2031',
+          eclipseType: 'Penumbral Lunar Eclipse',
+          cardColor: '#a995c9',
+          media: ['media/day15_1.jpg', 'media/day15_2.jpg'],
+          story: 'My friend trusted me to design the first racket for his brand. He let me get weird with it, which made me feel strange and exposed, but they were happy with it. Same racket, two different faces.'
+        },
+        {
+          day: 16,
+          eclipseDate: '30 Oct 2031',
+          eclipseType: 'Penumbral Lunar Eclipse',
+          cardColor: '#a995c9',
+          media: ['media/day16_1.jpg', 'media/day16_2.mp4'],
+          story: 'My favourite DJ announced a Barcelona date at the very last minute. A friend trusted me with his first-ever clubbing experience. We all left buzzing, and Ale and I came out hyper-inspired.'
+        },
+        {
+          day: 17,
+          eclipseDate: '25 Apr 2032',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day17_1.mp4'],
+          story: 'Testing out the camera and recorder to capture little bits! Ran into some technical hiccups so there are only fragments, but Hangover practice session vol. i rules.'
+        },
+        {
+          day: 18,
+          eclipseDate: '18 Oct 2032',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day18_1.jpg', 'media/day18_2.jpg'],
+          story: 'Go-karting. My friend laughed at me because he’d never seen me scared before doing an activity. Had an absolute blast.'
+        },
+        {
+          day: 19,
+          eclipseDate: '14 Apr 2033',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day19_1.jpg'],
+          story: 'Trying to keep making my own clothes.'
+        },
+        {
+          day: 20,
+          eclipseDate: '8 Oct 2033',
+          eclipseType: 'Total Lunar Eclipse',
+          cardColor: '#e07a5f',
+          media: ['media/day20_1.jpg', 'media/day20_2.mp4'],
+          story: 'Bought myself a better mixer. Haven’t stopped practising.'
+        },
+        {
+          day: 21,
+          eclipseDate: '20 Mar 2034',
+          eclipseType: 'Partial Solar Eclipse',
+          cardColor: '#82b07a',
+          media: ['media/day21_1.jpg'],
+          story: 'Reused my frog to test out some new stickers. At this point I probably can’t keep using it anymore, but the stickers are pure disco.'
+        },
+        {
+          day: 22,
+          eclipseDate: '28 Sep 2034',
+          eclipseType: 'Partial Lunar Eclipse',
+          cardColor: '#7eb2cf',
+          media: ['media/day22_1.jpg', 'media/day22_2.jpg'],
+          story: 'Berlin. Ronya gave me makeup lessons. Would’ve never thought of double pink eyebrows.'
+        },
+        {
+          day: 23,
+          eclipseDate: '22 Feb 2035',
+          eclipseType: 'Penumbral Lunar Eclipse',
+          cardColor: '#a995c9',
+          media: ['media/day23_1.jpg', 'media/day23_2.jpg'],
+          story: 'Finally scratching that itch and sending you a couple of photos from Nicaragua.'
+        },
+        {
+          day: 24,
+          eclipseDate: '2 Sep 2035',
+          eclipseType: 'Partial Solar Eclipse',
+          cardColor: '#eab64d',
+          media: ['media/day24_1.jpg'],
+          story: 'Couldn’t pick just one summary song. Pick your fighter. They go from most introspective, to sad, to upbeat, to full party (top to bottom).'
+        }
+      ];
+
+      // Door 25 metadata (Special Close-Up Astronaut Sunflower & Hangman Finale)
+      const DOOR_25_INFO = {
+        day: 25,
+        eclipseDate: 'Final Door',
+        eclipseType: 'October Mystery • Hangman',
+        cardColor: '#eab64d'
+      };
+
+      // Traditional scrambled advent grid order across the 5x5 board (Door 25 prominent at center)
+      const SCRAMBLED_BOARD_ORDER = [
+        15, 20,  3, 19, 23,
+        17, 11,  7,  4,  9,
+        13, 21, 25, 14, 22,
+         5, 18,  1, 16, 10,
+         8, 12,  2,  6, 24
+      ];
+
+      /* ======================================================================
+         2. BROWSER LOCALSTORAGE STATE (TRACKS OPENED DOORS PER VISITOR)
+         ====================================================================== */
+      const STORAGE_OPENED_KEY = 'uk_eclipse_advent_static_opened_v1';
+      const STORAGE_SOUND_KEY = 'uk_eclipse_advent_static_sound_v1';
+
+      let openedDoors = loadOpenedDoors();
+      let soundEnabled = localStorage.getItem(STORAGE_SOUND_KEY) !== 'false';
+      let activeModalDay = null;
+
+      // Door 25 Hangman Game State
+      const HANGMAN_CLUE = 'What Rory was in October:';
+      const HANGMAN_WORD = 'ALIEN';
+      const HANGMAN_MAX_CHANCES = 5;
+
+      let hangman = createFreshHangmanState();
+
+      function createFreshHangmanState() {
+        return {
+          word: HANGMAN_WORD,
+          guessed: new Set(),
+          wrong: 0,
+          maxChances: HANGMAN_MAX_CHANCES,
+          status: 'playing' // 'playing' | 'won' | 'lost'
+        };
+      }
+
+      function loadOpenedDoors() {
+        try {
+          const raw = localStorage.getItem(STORAGE_OPENED_KEY);
+          return raw ? JSON.parse(raw) : {};
+        } catch (err) {
+          return {};
+        }
+      }
+
+      function saveOpenedDoors() {
+        try {
+          localStorage.setItem(STORAGE_OPENED_KEY, JSON.stringify(openedDoors));
+        } catch (err) {
+          // Ignore storage quota warnings
+        }
+      }
+
+      function getDayRecord(dayNum) {
+        if (dayNum === 25) return DOOR_25_INFO;
+        return CALENDAR_DAYS.find((d) => d.day === dayNum) || null;
+      }
+
+      function isVideoFile(filePath) {
+        return /\.(mp4|webm|mov|m4v|ogg)(\?.*)?$/i.test(filePath);
+      }
+
+      /* ======================================================================
+         3. TACTILE CARDBOARD & CHIME SOUND EFFECTS (WEB AUDIO API)
+         ====================================================================== */
+      let audioCtx = null;
+
+      function playCraftSound(kind) {
+        if (!soundEnabled) return;
+        try {
+          if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          const now = audioCtx.currentTime;
+
+          if (kind === 'creak') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(185, now);
+            osc.frequency.exponentialRampToValueAtTime(335, now + 0.14);
+            gain.gain.setValueAtTime(0.11, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.16);
+          } else if (kind === 'page') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(420, now);
+            osc.frequency.exponentialRampToValueAtTime(560, now + 0.08);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.09);
+          } else if (kind === 'good') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(523.25, now);
+            osc.frequency.setValueAtTime(659.25, now + 0.07);
+            gain.gain.setValueAtTime(0.12, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.2);
+          } else if (kind === 'bad') {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(195, now);
+            osc.frequency.exponentialRampToValueAtTime(115, now + 0.2);
+            gain.gain.setValueAtTime(0.09, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now);
+            osc.stop(now + 0.22);
+          } else if (kind === 'win') {
+            [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+              const o = audioCtx.createOscillator();
+              const g = audioCtx.createGain();
+              o.type = 'triangle';
+              o.frequency.setValueAtTime(freq, now + i * 0.09);
+              g.gain.setValueAtTime(0.12, now + i * 0.09);
+              g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.09 + 0.24);
+              o.connect(g);
+              g.connect(audioCtx.destination);
+              o.start(now + i * 0.09);
+              o.stop(now + i * 0.09 + 0.24);
+            });
+          }
+        } catch (err) {
+          // Ignore browser autoplay restrictions
+        }
+      }
+
+      /* ======================================================================
+         4. HAND-PAINTED GOUACHE & WATERCOLOR COSMIC BACKDROP (CANVAS)
+         ====================================================================== */
+      function initGouacheCosmosBackdrop() {
+        const canvas = document.getElementById('gouache-cosmos-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawBackdrop() {
+          const w = (canvas.width = window.innerWidth);
+          const h = (canvas.height = window.innerHeight);
+
+          // Deep midnight gouache sky
+          const baseGrad = ctx.createLinearGradient(0, 0, w, h);
+          baseGrad.addColorStop(0, '#1d2233');
+          baseGrad.addColorStop(0.5, '#131622');
+          baseGrad.addColorStop(1, '#101b29');
+          ctx.fillStyle = baseGrad;
+          ctx.fillRect(0, 0, w, h);
+
+          // Warm dusty rose & amber nebula clouds on the left, deep cyan wash on the right
+          const clouds = [
+            { x: w * 0.1, y: h * 0.24, r: Math.max(w, h) * 0.28, color: 'rgba(196, 122, 118, 0.26)' },
+            { x: w * 0.08, y: h * 0.72, r: Math.max(w, h) * 0.3, color: 'rgba(184, 114, 120, 0.25)' },
+            { x: w * 0.24, y: h * 0.48, r: Math.max(w, h) * 0.22, color: 'rgba(166, 126, 98, 0.19)' },
+            { x: w * 0.85, y: h * 0.45, r: Math.max(w, h) * 0.36, color: 'rgba(54, 114, 134, 0.27)' }
+          ];
+
+          clouds.forEach((c) => {
+            const g = ctx.createRadialGradient(c.x, c.y, 12, c.x, c.y, c.r);
+            g.addColorStop(0, c.color);
+            g.addColorStop(1, 'rgba(19, 22, 34, 0)');
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, w, h);
+          });
+
+          // Deterministic hand-dotted gouache stars
+          let seed = 8821;
+          const rand = () => {
+            seed = (seed * 16807) % 2147483647;
+            return (seed - 1) / 2147483646;
+          };
+
+          const speckCount = Math.floor((w * h) / 2300);
+          for (let i = 0; i < speckCount; i++) {
+            const x = rand() * w;
+            const y = rand() * h;
+            const radius = rand() * 1.6 + 0.4;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = rand() > 0.72
+              ? `rgba(247, 232, 200, ${0.25 + rand() * 0.55})`
+              : `rgba(182, 222, 235, ${0.2 + rand() * 0.5})`;
+            ctx.fill();
+          }
+
+          // Hand-painted icy cyan crystalline asteroid flecks on the right side
+          const fleckCount = Math.floor((w * h) / 5000);
+          for (let i = 0; i < fleckCount; i++) {
+            const fx = w * (0.55 + rand() * 0.45);
+            const fy = rand() * h;
+            const s = rand() * 5 + 1.8;
+            ctx.save();
+            ctx.translate(fx, fy);
+            ctx.rotate(rand() * Math.PI);
+            ctx.fillStyle = rand() > 0.5 ? 'rgba(116, 186, 204, 0.44)' : 'rgba(69, 139, 148, 0.5)';
+            ctx.beginPath();
+            ctx.moveTo(-s, -s * 0.5);
+            ctx.lineTo(s * 0.6, -s * 0.8);
+            ctx.lineTo(s, s * 0.4);
+            ctx.lineTo(-s * 0.3, s * 0.9);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+
+        drawBackdrop();
+        window.addEventListener('resize', drawBackdrop);
+      }
+
+      /* ======================================================================
+         5. HAND-DRAWN ILLUSTRATIONS (DOORS 1–24 ROCKET + DOOR 25 CLOSE-UP!)
+         ====================================================================== */
+      // Doors 1–24: Astronaut Sunflower riding a retro rocket ship
+      function getSunflowerRocketSVG({ variant = 0, sizeClass = 'w-16 h-16 sm:w-20 sm:h-20' } = {}) {
+        const rocketColors = ['#d9534f', '#458b94', '#e07a5f', '#6d9dc5', '#82b07a'];
+        const noseColors = ['#eab64d', '#f4a261', '#f7f0e2', '#e9c46a', '#f28482'];
+        const rocketBody = rocketColors[variant % rocketColors.length];
+        const rocketNose = noseColors[variant % noseColors.length];
+        const tilt = (variant % 3 === 0) ? -22 : (variant % 3 === 1) ? -16 : -27;
+
+        return `
+          <svg viewBox="0 0 170 165" class="${sizeClass} overflow-visible select-none" aria-hidden="true">
+            <!-- Hand-drawn gouache exhaust puffs -->
+            <g opacity="0.92">
+              <circle cx="24" cy="134" r="9" fill="#eab64d" stroke="#231b18" stroke-width="2.6"/>
+              <circle cx="14" cy="144" r="6.5" fill="#f7f0e2" stroke="#231b18" stroke-width="2.4"/>
+              <path d="M40 120 C24 124, 16 131, 13 138 C23 136, 32 133, 43 127 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>
+            </g>
+
+            <!-- Retro Tin & Cardboard Rocket -->
+            <g transform="rotate(${tilt} 88 112)">
+              <path d="M44 122 L28 142 L60 132 Z" fill="#7eb2cf" stroke="#231b18" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M40 100 L22 90 L46 114 Z" fill="#7eb2cf" stroke="#231b18" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M38 98 C64 87, 114 87, 142 112 C114 137, 64 137, 38 126 Z" fill="${rocketBody}" stroke="#231b18" stroke-width="3.2" stroke-linejoin="round"/>
+              <line x1="68" y1="94" x2="68" y2="130" stroke="#231b18" stroke-width="2.2" stroke-dasharray="3 4"/>
+              <path d="M120 97 C132 102, 141 107, 148 112 C141 117, 132 122, 120 127 Z" fill="${rocketNose}" stroke="#231b18" stroke-width="3.2" stroke-linejoin="round"/>
+              <circle cx="98" cy="112" r="9" fill="#f7f0e2" stroke="#231b18" stroke-width="2.8"/>
+              <circle cx="98" cy="112" r="5" fill="#7eb2cf"/>
+            </g>
+
+            <!-- Astronaut Sunflower riding atop the rocket -->
+            <g transform="translate(2, -4)">
+              <rect x="48" y="68" width="14" height="24" rx="5" fill="#7eb2cf" stroke="#231b18" stroke-width="3"/>
+              <path d="M70 91 L65 108 L79 110 L81 93 Z" fill="#f7f0e2" stroke="#231b18" stroke-width="3" stroke-linejoin="round"/>
+              <rect x="61" y="105" width="17" height="8" rx="3.5" fill="#eab64d" stroke="#231b18" stroke-width="2.8"/>
+              <rect x="60" y="68" width="30" height="26" rx="10" fill="#f7f0e2" stroke="#231b18" stroke-width="3.2"/>
+              <rect x="70" y="75" width="12" height="9" rx="2" fill="#eab64d" stroke="#231b18" stroke-width="2"/>
+              <path d="M84 76 Q101 82 99 97" fill="none" stroke="#f7f0e2" stroke-width="7.5" stroke-linecap="round"/>
+              <path d="M84 76 Q101 82 99 97" fill="none" stroke="#231b18" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="99" cy="98" r="5.5" fill="#eab64d" stroke="#231b18" stroke-width="2.6"/>
+              <rect x="62" y="63" width="26" height="7" rx="3.5" fill="#b68d60" stroke="#231b18" stroke-width="2.8"/>
+
+              <g transform="translate(75, 41)">
+                ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => `
+                  <ellipse cx="0" cy="-19" rx="5.8" ry="10" fill="#eab64d" stroke="#231b18" stroke-width="2.5" transform="rotate(${deg})"/>
+                `).join('')}
+                <circle cx="0" cy="0" r="14.5" fill="#6e3b1e" stroke="#231b18" stroke-width="2.8"/>
+                <circle cx="-5.5" cy="-1.5" r="3.8" fill="#231b18"/>
+                <circle cx="5.5" cy="-1.5" r="3.8" fill="#231b18"/>
+                <circle cx="-6.6" cy="-2.8" r="1.4" fill="#fbf7ef"/>
+                <circle cx="4.4" cy="-2.8" r="1.4" fill="#fbf7ef"/>
+                <path d="M-4.5 4.5 Q0 10 4.5 4.5" fill="#e07a5f" stroke="#231b18" stroke-width="2.2" stroke-linecap="round"/>
+                <ellipse cx="-9.5" cy="2.8" rx="2.5" ry="1.4" fill="#e07a5f" opacity="0.8"/>
+                <ellipse cx="9.5" cy="2.8" rx="2.5" ry="1.4" fill="#e07a5f" opacity="0.8"/>
+              </g>
+
+              <circle cx="75" cy="41" r="28" fill="rgba(251, 247, 239, 0.16)" stroke="#231b18" stroke-width="3.2"/>
+              <path d="M57 25 A21 21 0 0 1 73 18" fill="none" stroke="#fbf7ef" stroke-width="2.8" stroke-linecap="round" opacity="0.85"/>
+            </g>
+          </svg>
+        `;
+      }
+
+      // Door 25 Cover: Close-Up Portrait of the Astronaut Sunflower inside its Bubble Helmet!
+      function getCloseUpSunflowerPortraitSVG({ sizeClass = 'w-16 h-16 sm:w-20 sm:h-20' } = {}) {
+        return `
+          <svg viewBox="0 0 160 160" class="${sizeClass} overflow-visible select-none" aria-hidden="true">
+            <!-- Soft starry aura behind close-up helmet -->
+            <circle cx="24" cy="24" r="3" fill="#fbf7ef"/>
+            <circle cx="138" cy="30" r="2.8" fill="#c84232"/>
+            <circle cx="18" cy="128" r="2.6" fill="#7eb2cf"/>
+            <circle cx="142" cy="124" r="3" fill="#fbf7ef"/>
+
+            <!-- Space Suit Shoulders & Collar at bottom of close-up frame -->
+            <path d="M26 154 C30 130, 52 122, 80 122 C108 122, 130 130, 134 154 Z" fill="#f6efe2" stroke="#231b18" stroke-width="3.4" stroke-linejoin="round"/>
+            <!-- Suit shoulder patches -->
+            <circle cx="48" cy="142" r="7" fill="#c84232" stroke="#231b18" stroke-width="2.4"/>
+            <rect x="103" y="136" width="16" height="11" rx="3" fill="#7eb2cf" stroke="#231b18" stroke-width="2.4"/>
+
+            <!-- Heavy Brass/Kraft Helmet Neck Ring -->
+            <rect x="42" y="114" width="76" height="13" rx="6.5" fill="#b28859" stroke="#231b18" stroke-width="3.2"/>
+            <circle cx="55" cy="120.5" r="2.2" fill="#231b18"/>
+            <circle cx="80" cy="120.5" r="2.2" fill="#231b18"/>
+            <circle cx="105" cy="120.5" r="2.2" fill="#231b18"/>
+
+            <!-- Golden Sunflower Petals pressing right up against the curved glass visor -->
+            <g transform="translate(80, 68)">
+              ${[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((deg, idx) => `
+                <ellipse
+                  cx="0"
+                  cy="-37"
+                  rx="9.5"
+                  ry="17"
+                  fill="${idx % 2 === 0 ? '#eab64d' : '#f2c35b'}"
+                  stroke="#231b18"
+                  stroke-width="2.8"
+                  transform="rotate(${deg})"
+                />
+              `).join('')}
+
+              <!-- Large Textured Sunflower Seed Center (Close-Up Face) -->
+              <circle cx="0" cy="0" r="28" fill="#6e3b1e" stroke="#231b18" stroke-width="3.4"/>
+              <!-- Subtle cross-hatch seed texture dots -->
+              <circle cx="-16" cy="-14" r="1.4" fill="#4b2611"/>
+              <circle cx="16" cy="-14" r="1.4" fill="#4b2611"/>
+              <circle cx="-18" cy="12" r="1.4" fill="#4b2611"/>
+              <circle cx="18" cy="12" r="1.4" fill="#4b2611"/>
+
+              <!-- Big Expressive Final-Space-Style Eyes -->
+              <circle cx="-10.5" cy="-3" r="7.5" fill="#231b18"/>
+              <circle cx="10.5" cy="-3" r="7.5" fill="#231b18"/>
+              <circle cx="-12.8" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+              <circle cx="8.2" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+              <circle cx="-8.5" cy="-0.5" r="1.3" fill="#fbf7ef"/>
+              <circle cx="12.5" cy="-0.5" r="1.3" fill="#fbf7ef"/>
+
+              <!-- Rosy Gouache Cheeks & Playful Grin -->
+              <ellipse cx="-18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+              <ellipse cx="18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+              <path d="M-8 8.5 Q0 18 8 8.5 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>
+            </g>
+
+            <!-- Curved Glass Bubble Space Helmet Visor -->
+            <circle cx="80" cy="68" r="56" fill="rgba(251, 247, 239, 0.14)" stroke="#231b18" stroke-width="3.6"/>
+            <!-- Glossy hand-painted glass visor reflection arcs -->
+            <path d="M42 36 A44 44 0 0 1 78 21" fill="none" stroke="#fbf7ef" stroke-width="4" stroke-linecap="round" opacity="0.88"/>
+            <circle cx="36" cy="46" r="2.8" fill="#fbf7ef" opacity="0.85"/>
+          </svg>
+        `;
+      }
+
+      /* ======================================================================
+         6. SEAMLESS BLOCK-PRINTED WALLPAPER PATTERN FOR LEFT & RIGHT WINGS
+         ====================================================================== */
+      function renderWingWallpaperPatterns() {
+        const patternSVG = `
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="space-sunflower-wing-pattern" x="0" y="0" width="96" height="112" patternUnits="userSpaceOnUse">
+                <circle cx="14" cy="16" r="2" fill="#eab64d" opacity="0.85"/>
+                <circle cx="80" cy="24" r="1.8" fill="#f7f0e2" opacity="0.8"/>
+                <circle cx="22" cy="92" r="2.2" fill="#eab64d" opacity="0.8"/>
+                <path d="M74 78 A8 8 0 1 0 84 88 A6 6 0 1 1 74 78 Z" fill="#eab64d" stroke="#231b18" stroke-width="1.3"/>
+
+                <g transform="translate(26, 36) scale(0.32)">
+                  <path d="M38 98 C64 87, 114 87, 142 112 C114 137, 64 137, 38 126 Z" fill="#eab64d" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="24" fill="#f7f0e2" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="13" fill="#6e3b1e" stroke="#231b18" stroke-width="4"/>
+                </g>
+
+                <g transform="translate(56, 82) scale(0.28) rotate(-14)">
+                  <path d="M38 98 C64 87, 114 87, 142 112 C114 137, 64 137, 38 126 Z" fill="#7eb2cf" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="24" fill="#eab64d" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="13" fill="#6e3b1e" stroke="#231b18" stroke-width="4"/>
+                </g>
+
+                <g transform="translate(18, 66)">
+                  <circle cx="0" cy="0" r="7" fill="#eab64d" stroke="#231b18" stroke-width="1.5"/>
+                  <circle cx="3" cy="-1" r="6" fill="#231b18"/>
+                </g>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#space-sunflower-wing-pattern)" />
+          </svg>
+        `;
+        document.getElementById('left-wing-pattern').innerHTML = patternSVG;
+        document.getElementById('right-wing-pattern').innerHTML = patternSVG;
+      }
+
+      /* ======================================================================
+         7. RENDER 25 DIE-CUT HINGED DOORS ON THE CARDBOARD BOARD
+         ====================================================================== */
+      function renderAdventBoard() {
+        const grid = document.getElementById('calendar-doors-grid');
+        grid.innerHTML = '';
+
+        const totalOpened = Object.keys(openedDoors).length;
+        document.getElementById('opened-counter').textContent = `${totalOpened} / 25`;
+
+        SCRAMBLED_BOARD_ORDER.forEach((dayNum, gridIdx) => {
+          const item = getDayRecord(dayNum);
+          const isOpen = Boolean(openedDoors[dayNum]);
+          const isFinal = dayNum === 25;
+          const yearMatch = item.eclipseDate.match(/\d{4}/);
+          const yearBadge = isFinal ? 'FINAL' : (yearMatch ? yearMatch[0] : '');
+
+          const slotEl = document.createElement('div');
+          slotEl.className = `advent-door-slot ${isOpen ? 'is-open' : ''}`;
+          slotEl.dataset.day = dayNum;
+
+          // Recessed pocket content revealed behind swung-open flap
+          const innerPocketHTML = isFinal
+            ? `
+              <div class="w-full h-full flex flex-col items-center justify-between text-center py-0.5">
+                <span class="px-2 py-0.5 rounded bg-craft-terracotta text-white font-stamp text-[10px] border border-craft-ink">
+                  DOOR 25
+                </span>
+                <div class="my-auto">
+                  ${getCloseUpSunflowerPortraitSVG({ sizeClass: 'w-14 h-14 sm:w-16 sm:h-16' })}
+                </div>
+                <span class="px-2 py-0.5 rounded bg-craft-ochre border border-craft-ink font-stamp text-[10px] text-craft-ink">
+                  Play Hangman →
+                </span>
+              </div>
+            `
+            : `
+              <div class="w-full h-full flex flex-col items-center justify-between text-center py-0.5">
+                <span class="font-stamp text-[10px] text-[#5e4633]">
+                  ${item.eclipseDate}
+                </span>
+                <div class="my-auto px-1 font-hand font-bold text-xs text-craft-ink line-clamp-3 leading-snug">
+                  “${escapeHTML(item.story)}”
+                </div>
+                <span class="px-2 py-0.5 rounded bg-craft-ochre/85 border border-craft-ink font-stamp text-[10px] text-craft-ink leading-none">
+                  Read &amp; View →
+                </span>
+              </div>
+            `;
+
+          // Door front illustration: Rocket for Days 1–24, Close-Up Sunflower Portrait for Door 25!
+          const doorIllustrationHTML = isFinal
+            ? getCloseUpSunflowerPortraitSVG({
+                sizeClass: 'w-16 h-16 sm:w-[72px] sm:h-[72px] lg:w-[80px] lg:h-[80px]'
+              })
+            : getSunflowerRocketSVG({
+                variant: dayNum,
+                sizeClass: 'w-14 h-14 sm:w-16 sm:h-16 lg:w-[74px] lg:h-[74px]'
+              });
+
+          const doorFrontHTML = `
+            <div class="door-flap-front" style="background-color: ${item.cardColor};">
+              <!-- Semicircular thumb-notch cutout on right side -->
+              <div class="finger-notch"></div>
+
+              <!-- Top Row: Stamped Door Number + Eclipse Year -->
+              <div class="w-full flex items-center justify-between gap-1 z-10">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full cotton-paper border-2 border-craft-ink flex items-center justify-center font-storybook font-bold text-xs sm:text-sm text-craft-ink shadow-[0_2px_0_#231b18]">
+                  ${dayNum}
+                </span>
+                <span class="px-1.5 py-0.5 rounded bg-craft-ink/85 text-craft-cream font-stamp text-[10px] tracking-tight">
+                  ${yearBadge}
+                </span>
+              </div>
+
+              <!-- Center Hand-Drawn Illustration -->
+              <div class="sketch-bob my-auto flex items-center justify-center" style="animation-delay: ${(gridIdx * 0.19) % 2.5}s;">
+                ${doorIllustrationHTML}
+              </div>
+
+              <!-- Bottom Label: UK Eclipse Date & Type (or Door 25 Mystery) -->
+              <div class="w-full bg-craft-cream/95 border-[1.5px] border-craft-ink rounded px-1.5 py-0.5 text-center z-10">
+                ${
+                  isFinal
+                    ? `<div class="font-stamp text-[10px] sm:text-[11px] text-craft-terracotta leading-tight truncate">OCTOBER MYSTERY</div>`
+                    : `
+                      <div class="font-stamp text-[9.5px] sm:text-[10px] text-craft-ink leading-tight truncate">${item.eclipseDate}</div>
+                      <div class="font-hand font-bold text-[10.5px] sm:text-[11px] text-[#4e3928] leading-tight truncate">${item.eclipseType}</div>
+                    `
+                }
+              </div>
+            </div>
+
+            <!-- Inner raw kraft cardboard backing seen when door swings open -->
+            <div class="door-flap-back">
+              <div class="text-center opacity-75">
+                <div class="font-storybook font-bold text-sm text-craft-ink">#${dayNum}</div>
+                <div class="font-stamp text-[9px] text-craft-ink uppercase">${isFinal ? 'Mission' : 'UK Eclipse'}</div>
+              </div>
+            </div>
+          `;
+
+          slotEl.innerHTML = `
+            <div class="door-recessed-pocket" title="Open Door #${dayNum}">
+              ${innerPocketHTML}
+            </div>
+            <div class="door-cardboard-flap" role="button" tabindex="0" aria-label="Door ${dayNum}: ${item.eclipseDate} - ${item.eclipseType}">
+              ${doorFrontHTML}
+            </div>
+          `;
+
+          const flapEl = slotEl.querySelector('.door-cardboard-flap');
+          const pocketEl = slotEl.querySelector('.door-recessed-pocket');
+
+          const handleDoorOpen = () => {
+            if (!openedDoors[dayNum]) {
+              openedDoors[dayNum] = true;
+              saveOpenedDoors();
+              slotEl.classList.add('is-open');
+              playCraftSound('creak');
+              document.getElementById('opened-counter').textContent = `${Object.keys(openedDoors).length} / 25`;
+
+              setTimeout(() => {
+                openScrapbookModal(dayNum, false);
+              }, 430);
+            } else {
+              openScrapbookModal(dayNum, false);
+            }
+          };
+
+          flapEl.addEventListener('click', handleDoorOpen);
+          pocketEl.addEventListener('click', handleDoorOpen);
+          flapEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleDoorOpen();
+            }
+          });
+
+          grid.appendChild(slotEl);
+        });
+      }
+
+      /* ======================================================================
+         8. SCRAPBOOK & HANGMAN MODAL + LEFT / RIGHT DOOR NAVIGATION
+         ====================================================================== */
+      function openScrapbookModal(dayNum, isFlipping = false) {
+        const item = getDayRecord(dayNum);
+        if (!item) return;
+
+        activeModalDay = dayNum;
+
+        // Mark visited door as open on the calendar board
+        if (!openedDoors[dayNum]) {
+          openedDoors[dayNum] = true;
+          saveOpenedDoors();
+        }
+        renderAdventBoard();
+
+        playCraftSound(isFlipping ? 'page' : 'creak');
+
+        document.getElementById('modal-door-stamp').textContent = `DOOR ${dayNum} OF 25`;
+        document.getElementById('modal-door-heading').textContent =
+          dayNum === 25
+            ? 'Door 25 — Close-Up Astronaut Sunflower Hangman'
+            : `${item.eclipseDate} — ${item.eclipseType}`;
+
+        const body = document.getElementById('modal-page-body');
+        if (dayNum === 25) {
+          renderDoor25HangmanPage(body);
+        } else {
+          renderDayScrapbookPage(body, item);
+        }
+
+        const modal = document.getElementById('scrapbook-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeScrapbookModal() {
+        const modal = document.getElementById('scrapbook-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        activeModalDay = null;
+        renderAdventBoard();
+      }
+
+      function navigateDoor(delta) {
+        if (activeModalDay === null) return;
+        let nextDay = activeModalDay + delta;
+        if (nextDay < 1) nextDay = 25;
+        if (nextDay > 25) nextDay = 1;
+        openScrapbookModal(nextDay, true);
+      }
+
+      /* ======================================================================
+         9. DAYS 1–24 STATIC POLAROID SCRAPBOOK PAGE
+         ====================================================================== */
+      function renderDayScrapbookPage(container, item) {
+        const mediaList = Array.isArray(item.media) ? item.media.slice(0, 2) : [];
+        const gridColsClass = mediaList.length === 1
+          ? 'grid-cols-1 max-w-lg mx-auto'
+          : 'grid-cols-1 md:grid-cols-2';
+
+        container.innerHTML = `
+          <!-- Hand-Stamped UK Eclipse Note & Personal Story Card -->
+          <div class="relative kraft-cardboard border-2 border-craft-ink rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 shadow-[0_4px_0_rgba(35,27,24,0.3)]">
+            <div class="washi-tape -top-2.5 left-8 -rotate-2"></div>
+            <div class="shrink-0">
+              ${getSunflowerRocketSVG({
+                variant: item.day,
+                sizeClass: 'w-20 h-20'
+              })}
+            </div>
+            <div class="text-center sm:text-left flex-1">
+              <div class="inline-flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded bg-craft-ink text-craft-cream font-stamp text-xs">
+                  ${item.eclipseDate}
+                </span>
+                <span class="px-2.5 py-0.5 rounded bg-craft-cream border border-craft-ink font-stamp text-xs text-craft-ink">
+                  ${item.eclipseType} • UK
+                </span>
+              </div>
+              <p class="font-hand text-lg sm:text-xl text-craft-ink leading-relaxed">
+                “${escapeHTML(item.story)}”
+              </p>
+            </div>
+          </div>
+
+          <!-- 1 or 2 Taped Static Polaroid Frames -->
+          <div class="grid ${gridColsClass} gap-6 pt-2">
+            ${mediaList.map((src, idx) => buildStaticPolaroidHTML(item, src, idx)).join('')}
+          </div>
+        `;
+
+        // Attach lightbox & graceful vintage darkroom fallback handlers
+        mediaList.forEach((src, idx) => {
+          const mediaEl = document.getElementById(`static-media-${item.day}-${idx}`);
+          const fallbackEl = document.getElementById(`static-fallback-${item.day}-${idx}`);
+          if (!mediaEl) return;
+
+          mediaEl.addEventListener('error', () => {
+            mediaEl.classList.add('hidden');
+            if (fallbackEl) fallbackEl.classList.remove('hidden');
+          });
+
+          if (!isVideoFile(src)) {
+            mediaEl.addEventListener('click', () => {
+              openLightbox(src, `Day ${item.day} (${item.eclipseDate}) — ${item.eclipseType}`);
+            });
+          }
+        });
+      }
+
+      function buildStaticPolaroidHTML(item, src, idx) {
+        const tiltClass = idx === 0 ? '-rotate-1' : 'rotate-1';
+        const isVideo = isVideoFile(src);
+
+        return `
+          <div class="relative bg-[#fffdf8] border-2 border-craft-ink rounded-sm p-3.5 pb-4 shadow-[0_8px_18px_rgba(35,27,24,0.28)] ${tiltClass} flex flex-col justify-between">
+            <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 ${idx === 0 ? 'rotate-2' : '-rotate-2'}"></div>
+
+            <!-- Polaroid Media Well -->
+            <div class="relative bg-[#1c1714] border border-craft-ink/40 h-64 sm:h-72 flex items-center justify-center overflow-hidden">
+              ${
+                isVideo
+                  ? `<video
+                      id="static-media-${item.day}-${idx}"
+                      src="${escapeAttr(src)}"
+                      controls
+                      playsinline
+                      preload="metadata"
+                      class="w-full h-full object-contain"
+                    ></video>`
+                  : `<img
+                      id="static-media-${item.day}-${idx}"
+                      src="${escapeAttr(src)}"
+                      alt="Day ${item.day} keepsake ${idx + 1}"
+                      title="Click to enlarge Polaroid"
+                      class="w-full h-full object-contain cursor-zoom-in hover:scale-[1.02] transition-transform"
+                    />`
+              }
+
+              <!-- Vintage Darkroom Contact-Sheet Fallback (shown automatically if file isn't in media/ yet) -->
+              <div
+                id="static-fallback-${item.day}-${idx}"
+                class="hidden w-full h-full bg-[#efe4cf] text-craft-ink p-4 flex flex-col items-center justify-center text-center border-2 border-dashed border-[#a68967]"
+              >
+                <div class="text-3xl mb-1.5">${isVideo ? '🎞️' : '📷'}</div>
+                <div class="font-storybook font-bold text-sm text-craft-ink">
+                  Darkroom Contact Sheet #${idx + 1}
+                </div>
+                <p class="font-hand text-xs text-[#5b4431] mt-1 max-w-[230px]">
+                  Place your file at this path in your GitHub repo to develop this Polaroid:
+                </p>
+                <code class="mt-2 px-2.5 py-1 rounded bg-craft-ink text-craft-ochre font-stamp text-xs">
+                  ${escapeHTML(src)}
+                </code>
+              </div>
+            </div>
+
+            <!-- Handwritten Polaroid Margin Note -->
+            <div class="pt-3 flex items-center justify-between gap-2 px-1">
+              <span class="font-script text-xl text-craft-ink">
+                Day ${item.day} • ${item.eclipseDate}
+              </span>
+              <span class="font-stamp text-[10px] text-[#7a6048] uppercase">
+                ${isVideo ? 'Reel #' + (idx + 1) : 'Snapshot #' + (idx + 1)}
+              </span>
+            </div>
+          </div>
+        `;
+      }
+
+      /* ======================================================================
+         10. DOOR 25 — CLOSE-UP ASTRONAUT SUNFLOWER HANGMAN DIORAMA & GAME
+         ====================================================================== */
+      function buildCloseUpHangmanDioramaSVG(wrongCount, status) {
+        const isWon = status === 'won';
+        const isLost = status === 'lost';
+        const chancesLeft = Math.max(0, HANGMAN_MAX_CHANCES - wrongCount);
+
+        // 5 Visual Danger Progression Stages on the Close-Up Astronaut Sunflower
+        const showWarningReflection = !isWon && wrongCount >= 1;
+        const showTractorBeam = !isWon && wrongCount >= 2;
+        const showVisorCrack = !isWon && wrongCount >= 3;
+        const showAlienTentacle = !isWon && wrongCount >= 4;
+
+        // Expressive eyes & mouth per stage
+        let eyesSVG = `
+          <circle cx="-10.5" cy="-3" r="7.5" fill="#231b18"/>
+          <circle cx="10.5" cy="-3" r="7.5" fill="#231b18"/>
+          <circle cx="-12.8" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+          <circle cx="8.2" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+        `;
+        let mouthSVG = `<path d="M-8 8.5 Q0 18 8 8.5 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>`;
+
+        if (isWon) {
+          eyesSVG = `
+            <text x="-17" y="2" font-size="15" fill="#eab64d" stroke="#231b18" stroke-width="0.8" font-weight="bold">★</text>
+            <text x="4" y="2" font-size="15" fill="#eab64d" stroke="#231b18" stroke-width="0.8" font-weight="bold">★</text>
+          `;
+          mouthSVG = `<path d="M-9 8 Q0 21 9 8 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>`;
+        } else if (isLost) {
+          eyesSVG = `
+            <text x="-17" y="2" font-size="14" fill="#fbf7ef" font-weight="bold">@</text>
+            <text x="4" y="2" font-size="14" fill="#fbf7ef" font-weight="bold">@</text>
+          `;
+          mouthSVG = `<path d="M-8 14 Q0 7 8 14" fill="none" stroke="#fbf7ef" stroke-width="2.8" stroke-linecap="round"/>`;
+        } else if (wrongCount >= 3) {
+          eyesSVG = `
+            <circle cx="-10.5" cy="-3" r="8.5" fill="#fbf7ef" stroke="#231b18" stroke-width="2.2"/>
+            <circle cx="10.5" cy="-3" r="8.5" fill="#fbf7ef" stroke="#231b18" stroke-width="2.2"/>
+            <circle cx="-9.5" cy="-3" r="3.2" fill="#231b18"/>
+            <circle cx="11.5" cy="-3" r="3.2" fill="#231b18"/>
+          `;
+          mouthSVG = `<ellipse cx="0" cy="11" rx="5.5" ry="6.5" fill="#231b18"/>`;
+        } else if (wrongCount >= 1) {
+          mouthSVG = `<path d="M-8 11 Q-4 7 0 11 Q4 15 8 11" fill="none" stroke="#fbf7ef" stroke-width="2.6" stroke-linecap="round"/>`;
+        }
+
+        const headTilt = isLost
+          ? 'translate(180, 74) rotate(-24) scale(0.86)'
+          : wrongCount === 4
+            ? 'translate(180, 96) rotate(7)'
+            : wrongCount === 3
+              ? 'translate(180, 94) rotate(-6)'
+              : 'translate(180, 92)';
+
+        return `
+          <svg viewBox="0 0 360 195" class="w-full max-w-md mx-auto h-48 sm:h-52 rounded-xl bg-[#202434] border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] overflow-hidden">
+            <!-- Hand-dotted gouache stars -->
+            <circle cx="34" cy="28" r="2.2" fill="#f7f0e2" opacity="0.85"/>
+            <circle cx="72" cy="152" r="2.4" fill="#eab64d" opacity="0.8"/>
+            <circle cx="290" cy="34" r="2.2" fill="#7eb2cf" opacity="0.9"/>
+            <circle cx="322" cy="144" r="2.4" fill="#f7f0e2" opacity="0.85"/>
+            <circle cx="54" cy="84" r="1.8" fill="#e07a5f" opacity="0.85"/>
+
+            <!-- Stage 2+: Glowing Alien Tractor Beam locking down from above -->
+            ${showTractorBeam ? `
+              <polygon
+                points="146,0 214,0 268,195 92,195"
+                fill="${isLost ? 'rgba(130, 176, 122, 0.34)' : 'rgba(130, 176, 122, 0.18)'}"
+              />
+              <ellipse cx="180" cy="14" rx="44" ry="8" fill="#82b07a" stroke="#231b18" stroke-width="2.4"/>
+            ` : ''}
+
+            <!-- Close-Up Astronaut Sunflower Portrait -->
+            <g transform="${headTilt}">
+              <!-- Suit Shoulders -->
+              <path d="M-54 88 C-48 62, -26 54, 0 54 C26 54, 48 62, 54 88 Z" fill="#f6efe2" stroke="#231b18" stroke-width="3.2"/>
+              <circle cx="-30" cy="74" r="6.5" fill="#c84232" stroke="#231b18" stroke-width="2.2"/>
+              <rect x="22" y="68" width="15" height="10" rx="2.5" fill="#7eb2cf" stroke="#231b18" stroke-width="2.2"/>
+
+              <!-- Helmet Collar Ring -->
+              <rect x="-38" y="46" width="76" height="13" rx="6.5" fill="#b28859" stroke="#231b18" stroke-width="3"/>
+
+              <!-- Golden Sunflower Petals pressing inside glass helmet -->
+              ${[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((deg, idx) => `
+                <ellipse
+                  cx="0"
+                  cy="-37"
+                  rx="9.5"
+                  ry="17"
+                  fill="${idx % 2 === 0 ? '#eab64d' : '#f2c35b'}"
+                  stroke="#231b18"
+                  stroke-width="2.6"
+                  transform="rotate(${deg})"
+                />
+              `).join('')}
+
+              <!-- Sunflower Seed Center Face -->
+              <circle cx="0" cy="0" r="28" fill="#6e3b1e" stroke="#231b18" stroke-width="3.2"/>
+              ${eyesSVG}
+              ${mouthSVG}
+              <ellipse cx="-18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+              <ellipse cx="18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+
+              <!-- Glass Bubble Helmet -->
+              <circle
+                cx="0"
+                cy="0"
+                r="56"
+                fill="${showWarningReflection ? 'rgba(200, 66, 50, 0.16)' : 'rgba(251, 247, 239, 0.14)'}"
+                stroke="#231b18"
+                stroke-width="3.5"
+              />
+              <path d="M-38 -32 A44 44 0 0 1 -2 -47" fill="none" stroke="#fbf7ef" stroke-width="3.8" stroke-linecap="round" opacity="0.88"/>
+
+              <!-- Stage 1+: Red Warning Reflection on Glass Visor -->
+              ${showWarningReflection ? `
+                <g transform="translate(33, -24)">
+                  <circle cx="0" cy="0" r="10" fill="#c84232" stroke="#231b18" stroke-width="2.2"/>
+                  <text x="-3" y="4.5" font-family="Special Elite, monospace" font-size="13" font-weight="bold" fill="#fbf7ef">!</text>
+                </g>
+              ` : ''}
+
+              <!-- Stage 3+: Glass Visor Crack + Masking Tape Patch -->
+              ${showVisorCrack ? `
+                <path d="M22 -34 L10 -15 L25 -3 L13 14" fill="none" stroke="#fbf7ef" stroke-width="2.8" stroke-linecap="round"/>
+                <rect x="9" y="-13" width="18" height="6" fill="#eab64d" stroke="#231b18" stroke-width="1.5" transform="rotate(-18 18 -10)"/>
+              ` : ''}
+
+              <!-- Stage 4+: Green Alien Tentacle Tapping the Top of the Helmet -->
+              ${showAlienTentacle ? `
+                <path
+                  d="M72 -92 Q42 -68 18 -56 Q8 -51 14 -43 Q22 -39 34 -47 Q56 -61 84 -86 Z"
+                  fill="#82b07a"
+                  stroke="#231b18"
+                  stroke-width="2.8"
+                  stroke-linejoin="round"
+                />
+                <circle cx="38" cy="-58" r="2.4" fill="#eab64d"/>
+                <circle cx="52" cy="-67" r="2.4" fill="#eab64d"/>
+              ` : ''}
+
+              <!-- Victory: Cute Green Alien Antennae Sprouting on the Helmet! -->
+              ${isWon ? `
+                <g transform="translate(0, -56)">
+                  <path d="M-16 3 L-26 -20" stroke="#231b18" stroke-width="3.6" stroke-linecap="round"/>
+                  <circle cx="-26" cy="-21" r="7" fill="#82b07a" stroke="#231b18" stroke-width="2.8"/>
+                  <path d="M16 3 L26 -20" stroke="#231b18" stroke-width="3.6" stroke-linecap="round"/>
+                  <circle cx="26" cy="-21" r="7" fill="#82b07a" stroke="#231b18" stroke-width="2.8"/>
+                </g>
+              ` : ''}
+            </g>
+
+            <!-- Hand-Stamped Status Tag in Corner -->
+            <g transform="translate(10, 172)">
+              <rect x="0" y="-14" width="174" height="22" rx="4" fill="#f6efe2" stroke="#231b18" stroke-width="2"/>
+              <text x="9" y="1" font-family="Special Elite, monospace" font-size="10.5" font-weight="bold" fill="${chancesLeft <= 1 && !isWon ? '#c84232' : '#231b18'}">
+                ${isWon ? 'RORY WAS AN ALIEN! 👽' : isLost ? 'BEAMED UP! 0/5 LEFT' : `${chancesLeft} OF 5 CHANCES LEFT`}
+              </text>
+            </g>
+          </svg>
+        `;
+      }
+
+      function renderDoor25HangmanPage(container) {
+        const { word, guessed, wrong, maxChances, status } = hangman;
+        const chancesLeft = Math.max(0, maxChances - wrong);
+
+        const letterSlotsHTML = word
+          .split('')
+          .map((ch) => {
+            const shown = guessed.has(ch) || status === 'lost';
+            const missed = status === 'lost' && !guessed.has(ch);
+            return `
+              <div class="w-12 h-14 sm:w-16 sm:h-20 rounded-lg border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] flex items-center justify-center font-storybook font-bold text-2xl sm:text-4xl transition-transform ${
+                shown
+                  ? missed
+                    ? 'bg-craft-terracotta text-white'
+                    : 'bg-craft-ochre text-craft-ink scale-105'
+                  : 'bg-[#ebe0cc] text-transparent'
+              }">
+                ${shown ? ch : '_'}
+              </div>
+            `;
+          })
+          .join('');
+
+        const chanceTokensHTML = Array.from({ length: maxChances })
+          .map((_, idx) => {
+            const alive = idx < chancesLeft;
+            return `
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-2 border-craft-ink text-base transition-all ${
+                alive ? 'bg-craft-ochre shadow-[0_2px_0_#231b18]' : 'bg-[#dcd0bc] opacity-40 grayscale'
+              }" title="${alive ? 'Chance remaining' : 'Chance used'}">
+                🌻
+              </span>
+            `;
+          })
+          .join('');
+
+        const keyboardRows = [
+          ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+          ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+          ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
+        ];
+
+        const keyboardHTML = keyboardRows
+          .map(
+            (row) => `
+            <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2">
+              ${row
+                .map((letter) => {
+                  const used = guessed.has(letter);
+                  const hit = used && word.includes(letter);
+                  const miss = used && !word.includes(letter);
+
+                  let tileBg = 'bg-[#fffdf8] hover:bg-[#f4e7cf] text-craft-ink';
+                  if (hit) tileBg = 'bg-craft-sage text-craft-ink';
+                  else if (miss) tileBg = 'bg-[#dfd3be] text-[#8d7963] line-through';
+
+                  return `
+                    <button
+                      type="button"
+                      data-key="${letter}"
+                      ${used || status !== 'playing' ? 'disabled' : ''}
+                      class="hangman-tile craft-btn w-8 h-10 sm:w-11 sm:h-12 rounded-lg font-stamp text-sm sm:text-lg flex items-center justify-center cursor-pointer ${tileBg}"
+                    >
+                      ${letter}
+                    </button>
+                  `;
+                })
+                .join('')}
+            </div>
+          `
+          )
+          .join('');
+
+        let outcomeBanner = '';
+        if (status === 'won') {
+          outcomeBanner = `
+            <div class="rounded-xl bg-craft-sage border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] p-3.5 text-center">
+              <div class="font-storybook font-bold text-xl sm:text-2xl text-craft-ink">
+                🎉 Spot on! Rory was an ALIEN in October! 👽🌻🚀
+              </div>
+              <p class="font-hand text-sm sm:text-base text-craft-ink mt-0.5">
+                You saved the Astronaut Sunflower and unlocked the final secret of the calendar!
+              </p>
+            </div>
+          `;
+        } else if (status === 'lost') {
+          outcomeBanner = `
+            <div class="rounded-xl bg-craft-terracotta text-white border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] p-3.5 text-center">
+              <div class="font-storybook font-bold text-xl sm:text-2xl">
+                Out of chances! (0 / 5 left)
+              </div>
+              <p class="font-hand text-sm sm:text-base mt-0.5">
+                The secret word was <span class="underline font-bold">ALIEN</span>. Hit Play Again to rescue the sunflower!
+              </p>
+            </div>
+          `;
+        }
+
+        container.innerHTML = `
+          <div id="hangman-sheet-wrap" class="relative space-y-4">
+            <!-- Clue & 5 Chances Header Card -->
+            <div class="relative kraft-cardboard border-2 border-craft-ink rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-3">
+              <div class="washi-tape -top-3 left-6 -rotate-2"></div>
+              <div class="text-center md:text-left">
+                <span class="inline-block px-2.5 py-0.5 rounded bg-craft-terracotta text-white font-stamp text-xs uppercase border border-craft-ink mb-1">
+                  Door 25 • Final Riddle
+                </span>
+                <h3 class="font-storybook font-bold text-xl sm:text-2xl text-craft-ink">
+                  ${HANGMAN_CLUE}
+                </h3>
+              </div>
+
+              <div class="flex flex-col items-center md:items-end gap-1 shrink-0">
+                <span class="font-stamp text-xs text-craft-ink uppercase">
+                  ${chancesLeft} Chances Left
+                </span>
+                <div class="flex items-center gap-1.5">
+                  ${chanceTokensHTML}
+                </div>
+              </div>
+            </div>
+
+            <!-- Close-Up Astronaut Sunflower Watercolor Diorama -->
+            <div>
+              ${buildCloseUpHangmanDioramaSVG(wrong, status)}
+            </div>
+
+            ${outcomeBanner}
+
+            <!-- 5 Stamped Letter Slots -->
+            <div class="flex items-center justify-center gap-2 sm:gap-3 py-1">
+              ${letterSlotsHTML}
+            </div>
+
+            <!-- Hand-Stamped Letter Keyboard -->
+            <div class="kraft-cardboard border-2 border-craft-ink rounded-xl p-3 sm:p-4 space-y-2">
+              ${keyboardHTML}
+            </div>
+
+            <!-- Play Again Button -->
+            <div class="flex justify-center pt-1">
+              <button
+                id="btn-hangman-restart"
+                type="button"
+                class="craft-btn px-5 py-2 rounded-lg bg-craft-ochre text-craft-ink font-stamp text-xs sm:text-sm flex items-center gap-2 cursor-pointer"
+              >
+                <span>↻</span>
+                <span>Play Again</span>
+              </button>
+            </div>
+          </div>
+        `;
+
+        container.querySelectorAll('.hangman-tile').forEach((btn) => {
+          btn.addEventListener('click', () => handleHangmanGuess(btn.dataset.key));
+        });
+
+        const restartBtn = document.getElementById('btn-hangman-restart');
+        if (restartBtn) {
+          restartBtn.addEventListener('click', () => {
+            hangman = createFreshHangmanState();
+            playCraftSound('page');
+            renderDoor25HangmanPage(container);
+          });
+        }
+
+        if (status === 'won') {
+          spawnPaperStarConfetti(document.getElementById('hangman-sheet-wrap'));
+        }
+      }
+
+      function handleHangmanGuess(rawChar) {
+        if (hangman.status !== 'playing') return;
+        const ch = rawChar.toUpperCase();
+        if (!/^[A-Z]$/.test(ch) || hangman.guessed.has(ch)) return;
+
+        hangman.guessed.add(ch);
+
+        if (hangman.word.includes(ch)) {
+          const solved = hangman.word.split('').every((c) => hangman.guessed.has(c));
+          if (solved) {
+            hangman.status = 'won';
+            playCraftSound('win');
+          } else {
+            playCraftSound('good');
+          }
+        } else {
+          hangman.wrong += 1;
+          if (hangman.wrong >= hangman.maxChances) {
+            hangman.status = 'lost';
+          }
+          playCraftSound('bad');
+        }
+
+        if (activeModalDay === 25) {
+          renderDoor25HangmanPage(document.getElementById('modal-page-body'));
+        }
+      }
+
+      function spawnPaperStarConfetti(parentEl) {
+        if (!parentEl) return;
+        const colors = ['#eab64d', '#c84232', '#82b07a', '#7eb2cf', '#fbf7ef'];
+        for (let i = 0; i < 22; i++) {
+          const star = document.createElement('div');
+          star.className = 'paper-confetti font-storybook font-bold text-lg';
+          star.textContent = i % 2 === 0 ? '★' : '✦';
+          star.style.left = `${8 + Math.random() * 84}%`;
+          star.style.top = `${10 + Math.random() * 25}%`;
+          star.style.color = colors[i % colors.length];
+          star.style.textShadow = '1px 1px 0 #231b18';
+          star.style.animationDelay = `${Math.random() * 0.35}s`;
+          parentEl.appendChild(star);
+          setTimeout(() => star.remove(), 2500);
+        }
+      }
+
+      /* ======================================================================
+         11. LIGHTBOX & ESCAPING HELPERS
+         ====================================================================== */
+      function openLightbox(src, caption = '') {
+        const lb = document.getElementById('lightbox-modal');
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox-caption').textContent = caption;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+      }
+
+      function closeLightbox() {
+        const lb = document.getElementById('lightbox-modal');
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+      }
+
+      function escapeHTML(val) {
+        return String(val)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function escapeAttr(val) {
+        return String(val)
+          .replace(/&/g, '&amp;')
+          .replace(/"/g, '&quot;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function refreshSoundButton() {
+        document.getElementById('sound-icon').textContent = soundEnabled ? '🔔' : '🔕';
+      }
+
+      /* ======================================================================
+         12. INITIALIZATION
+         ====================================================================== */
+      function init() {
+        initGouacheCosmosBackdrop();
+        renderWingWallpaperPatterns();
+
+        document.getElementById('header-sunflower-stamp').innerHTML = getSunflowerRocketSVG({
+          variant: 1,
+          sizeClass: 'w-12 h-12 sm:w-14 sm:h-14'
+        });
+
+        refreshSoundButton();
+        renderAdventBoard();
+
+        // Modal Left / Right Door Navigation & Close
+        document.getElementById('btn-prev-door').addEventListener('click', () => navigateDoor(-1));
+        document.getElementById('btn-next-door').addEventListener('click', () => navigateDoor(1));
+        document.getElementById('btn-close-modal').addEventListener('click', closeScrapbookModal);
+        document.getElementById('scrapbook-modal').addEventListener('click', (e) => {
+          if (e.target.id === 'scrapbook-modal') closeScrapbookModal();
+        });
+
+        // Sound Toggle
+        document.getElementById('btn-toggle-sound').addEventListener('click', () => {
+          soundEnabled = !soundEnabled;
+          localStorage.setItem(STORAGE_SOUND_KEY, String(soundEnabled));
+          refreshSoundButton();
+          if (soundEnabled) playCraftSound('page');
+        });
+
+        // Unobtrusive Reset Doors Dialog
+        const resetModal = document.getElementById('reset-modal');
+        document.getElementById('btn-reset-doors').addEventListener('click', () => {
+          resetModal.classList.remove('hidden');
+          resetModal.classList.add('flex');
+        });
+        document.getElementById('btn-reset-cancel').addEventListener('click', () => {
+          resetModal.classList.add('hidden');
+          resetModal.classList.remove('flex');
+        });
+        document.getElementById('btn-reset-confirm').addEventListener('click', () => {
+          openedDoors = {};
+          saveOpenedDoors();
+          renderAdventBoard();
+          resetModal.classList.add('hidden');
+          resetModal.classList.remove('flex');
+          playCraftSound('creak');
+        });
+
+        // Lightbox
+        document.getElementById('lightbox-modal').addEventListener('click', closeLightbox);
+        document.getElementById('btn-close-lightbox').addEventListener('click', closeLightbox);
+
+        // Keyboard Navigation (Left/Right arrows, Escape, and A-Z for Hangman)
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            if (!document.getElementById('lightbox-modal').classList.contains('hidden')) {
+              closeLightbox();
+            } else if (!resetModal.classList.contains('hidden')) {
+              resetModal.classList.add('hidden');
+              resetModal.classList.remove('flex');
+            } else if (activeModalDay !== null) {
+              closeScrapbookModal();
+            }
+            return;
+          }
+
+          if (activeModalDay !== null) {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              navigateDoor(-1);
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              navigateDoor(1);
+            } else if (activeModalDay === 25 && /^[a-zA-Z]$/.test(e.key)) {
+              handleHangmanGuess(e.key);
+            }
+          }
+        });
+      }
+
+      window.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+</body>
+</html>
