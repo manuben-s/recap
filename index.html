@@ -1272,7 +1272,8 @@
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, Math.PI * 2);
             ctx.fillStyle = rand() > 0.72
-              ? `rgba(247, 232, 200, ${0.25 + rand() * 0.55})` : `rgba(182, 222, 235, ${0.2 + rand() * 0.5})`;
+              ? `rgba(247, 232, 200, ${0.25 + rand() * 0.55})`
+              : `rgba(182, 222, 235, ${0.2 + rand() * 0.5})`;
             ctx.fill();
           }
 
@@ -1347,4 +1348,1045 @@
               <g transform="translate(75, 41)">
                 ${[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((deg) => `
                   <ellipse cx="0" cy="-19" rx="5.8" ry="10" fill="#eab64d" stroke="#231b18" stroke-width="2.5" transform="rotate(${deg})"/>
-                `).
+                `).join('')}
+                <circle cx="0" cy="0" r="14.5" fill="#6e3b1e" stroke="#231b18" stroke-width="2.8"/>
+                <circle cx="-5.5" cy="-1.5" r="3.8" fill="#231b18"/>
+                <circle cx="5.5" cy="-1.5" r="3.8" fill="#231b18"/>
+                <circle cx="-6.6" cy="-2.8" r="1.4" fill="#fbf7ef"/>
+                <circle cx="4.4" cy="-2.8" r="1.4" fill="#fbf7ef"/>
+                <path d="M-4.5 4.5 Q0 10 4.5 4.5" fill="#e07a5f" stroke="#231b18" stroke-width="2.2" stroke-linecap="round"/>
+                <ellipse cx="-9.5" cy="2.8" rx="2.5" ry="1.4" fill="#e07a5f" opacity="0.8"/>
+                <ellipse cx="9.5" cy="2.8" rx="2.5" ry="1.4" fill="#e07a5f" opacity="0.8"/>
+              </g>
+
+              <circle cx="75" cy="41" r="28" fill="rgba(251, 247, 239, 0.16)" stroke="#231b18" stroke-width="3.2"/>
+              <path d="M57 25 A21 21 0 0 1 73 18" fill="none" stroke="#fbf7ef" stroke-width="2.8" stroke-linecap="round" opacity="0.85"/>
+            </g>
+          </svg>
+        `;
+      }
+
+      // Door 25 Cover: Close-Up Portrait of the Astronaut Sunflower inside its Bubble Helmet!
+      function getCloseUpSunflowerPortraitSVG({ sizeClass = 'w-16 h-16 sm:w-20 sm:h-20' } = {}) {
+        return `
+          <svg viewBox="0 0 160 160" class="${sizeClass} overflow-visible select-none" aria-hidden="true">
+            <!-- Soft starry aura behind close-up helmet -->
+            <circle cx="24" cy="24" r="3" fill="#fbf7ef"/>
+            <circle cx="138" cy="30" r="2.8" fill="#c84232"/>
+            <circle cx="18" cy="128" r="2.6" fill="#7eb2cf"/>
+            <circle cx="142" cy="124" r="3" fill="#fbf7ef"/>
+
+            <!-- Space Suit Shoulders & Collar at bottom of close-up frame -->
+            <path d="M26 154 C30 130, 52 122, 80 122 C108 122, 130 130, 134 154 Z" fill="#f6efe2" stroke="#231b18" stroke-width="3.4" stroke-linejoin="round"/>
+            <!-- Suit shoulder patches -->
+            <circle cx="48" cy="142" r="7" fill="#c84232" stroke="#231b18" stroke-width="2.4"/>
+            <rect x="103" y="136" width="16" height="11" rx="3" fill="#7eb2cf" stroke="#231b18" stroke-width="2.4"/>
+
+            <!-- Heavy Brass/Kraft Helmet Neck Ring -->
+            <rect x="42" y="114" width="76" height="13" rx="6.5" fill="#b28859" stroke="#231b18" stroke-width="3.2"/>
+            <circle cx="55" cy="120.5" r="2.2" fill="#231b18"/>
+            <circle cx="80" cy="120.5" r="2.2" fill="#231b18"/>
+            <circle cx="105" cy="120.5" r="2.2" fill="#231b18"/>
+
+            <!-- Golden Sunflower Petals pressing right up against the curved glass visor -->
+            <g transform="translate(80, 68)">
+              ${[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((deg, idx) => `
+                <ellipse
+                  cx="0"
+                  cy="-37"
+                  rx="9.5"
+                  ry="17"
+                  fill="${idx % 2 === 0 ? '#eab64d' : '#f2c35b'}"
+                  stroke="#231b18"
+                  stroke-width="2.8"
+                  transform="rotate(${deg})"
+                />
+              `).join('')}
+
+              <!-- Large Textured Sunflower Seed Center (Close-Up Face) -->
+              <circle cx="0" cy="0" r="28" fill="#6e3b1e" stroke="#231b18" stroke-width="3.4"/>
+              <!-- Subtle cross-hatch seed texture dots -->
+              <circle cx="-16" cy="-14" r="1.4" fill="#4b2611"/>
+              <circle cx="16" cy="-14" r="1.4" fill="#4b2611"/>
+              <circle cx="-18" cy="12" r="1.4" fill="#4b2611"/>
+              <circle cx="18" cy="12" r="1.4" fill="#4b2611"/>
+
+              <!-- Big Expressive Final-Space-Style Eyes -->
+              <circle cx="-10.5" cy="-3" r="7.5" fill="#231b18"/>
+              <circle cx="10.5" cy="-3" r="7.5" fill="#231b18"/>
+              <circle cx="-12.8" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+              <circle cx="8.2" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+              <circle cx="-8.5" cy="-0.5" r="1.3" fill="#fbf7ef"/>
+              <circle cx="12.5" cy="-0.5" r="1.3" fill="#fbf7ef"/>
+
+              <!-- Rosy Gouache Cheeks & Playful Grin -->
+              <ellipse cx="-18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+              <ellipse cx="18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+              <path d="M-8 8.5 Q0 18 8 8.5 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>
+            </g>
+
+            <!-- Curved Glass Bubble Space Helmet Visor -->
+            <circle cx="80" cy="68" r="56" fill="rgba(251, 247, 239, 0.14)" stroke="#231b18" stroke-width="3.6"/>
+            <!-- Glossy hand-painted glass visor reflection arcs -->
+            <path d="M42 36 A44 44 0 0 1 78 21" fill="none" stroke="#fbf7ef" stroke-width="4" stroke-linecap="round" opacity="0.88"/>
+            <circle cx="36" cy="46" r="2.8" fill="#fbf7ef" opacity="0.85"/>
+          </svg>
+        `;
+      }
+
+      /* ======================================================================
+         6. SEAMLESS BLOCK-PRINTED WALLPAPER PATTERN FOR LEFT & RIGHT WINGS
+         ====================================================================== */
+      function renderWingWallpaperPatterns() {
+        const patternSVG = `
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="space-sunflower-wing-pattern" x="0" y="0" width="96" height="112" patternUnits="userSpaceOnUse">
+                <circle cx="14" cy="16" r="2" fill="#eab64d" opacity="0.85"/>
+                <circle cx="80" cy="24" r="1.8" fill="#f7f0e2" opacity="0.8"/>
+                <circle cx="22" cy="92" r="2.2" fill="#eab64d" opacity="0.8"/>
+                <path d="M74 78 A8 8 0 1 0 84 88 A6 6 0 1 1 74 78 Z" fill="#eab64d" stroke="#231b18" stroke-width="1.3"/>
+
+                <g transform="translate(26, 36) scale(0.32)">
+                  <path d="M38 98 C64 87, 114 87, 142 112 C114 137, 64 137, 38 126 Z" fill="#eab64d" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="24" fill="#f7f0e2" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="13" fill="#6e3b1e" stroke="#231b18" stroke-width="4"/>
+                </g>
+
+                <g transform="translate(56, 82) scale(0.28) rotate(-14)">
+                  <path d="M38 98 C64 87, 114 87, 142 112 C114 137, 64 137, 38 126 Z" fill="#7eb2cf" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="24" fill="#eab64d" stroke="#231b18" stroke-width="5"/>
+                  <circle cx="75" cy="41" r="13" fill="#6e3b1e" stroke="#231b18" stroke-width="4"/>
+                </g>
+
+                <g transform="translate(18, 66)">
+                  <circle cx="0" cy="0" r="7" fill="#eab64d" stroke="#231b18" stroke-width="1.5"/>
+                  <circle cx="3" cy="-1" r="6" fill="#231b18"/>
+                </g>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#space-sunflower-wing-pattern)" />
+          </svg>
+        `;
+        document.getElementById('left-wing-pattern').innerHTML = patternSVG;
+        document.getElementById('right-wing-pattern').innerHTML = patternSVG;
+      }
+
+      /* ======================================================================
+         7. RENDER 25 DIE-CUT HINGED DOORS ON THE CARDBOARD BOARD
+         ====================================================================== */
+      function renderAdventBoard() {
+        const grid = document.getElementById('calendar-doors-grid');
+        grid.innerHTML = '';
+
+        const totalOpened = Object.keys(openedDoors).length;
+        document.getElementById('opened-counter').textContent = `${totalOpened} / 25`;
+
+        SCRAMBLED_BOARD_ORDER.forEach((dayNum, gridIdx) => {
+          const item = getDayRecord(dayNum);
+          const isOpen = Boolean(openedDoors[dayNum]);
+          const isFinal = dayNum === 25;
+          const yearMatch = item.eclipseDate.match(/\d{4}/);
+          const yearBadge = isFinal ? 'FINAL' : (yearMatch ? yearMatch[0] : '');
+
+          const slotEl = document.createElement('div');
+          slotEl.className = `advent-door-slot ${isOpen ? 'is-open' : ''}`;
+          slotEl.dataset.day = dayNum;
+
+          // Recessed pocket content revealed behind swung-open flap
+          const innerPocketHTML = isFinal
+            ? `
+              <div class="w-full h-full flex flex-col items-center justify-between text-center py-0.5">
+                <span class="px-2 py-0.5 rounded bg-craft-terracotta text-white font-stamp text-[10px] border border-craft-ink">
+                  DOOR 25
+                </span>
+                <div class="my-auto">
+                  ${getCloseUpSunflowerPortraitSVG({ sizeClass: 'w-14 h-14 sm:w-16 sm:h-16' })}
+                </div>
+                <span class="px-2 py-0.5 rounded bg-craft-ochre border border-craft-ink font-stamp text-[10px] text-craft-ink">
+                  Play Hangman →
+                </span>
+              </div>
+            `
+            : `
+              <div class="w-full h-full flex flex-col items-center justify-between text-center py-0.5">
+                <span class="font-stamp text-[10px] text-[#5e4633]">
+                  ${item.eclipseDate}
+                </span>
+                <div class="my-auto px-1 font-hand font-bold text-xs text-craft-ink line-clamp-3 leading-snug">
+                  “${escapeHTML(item.story)}”
+                </div>
+                <span class="px-2 py-0.5 rounded bg-craft-ochre/85 border border-craft-ink font-stamp text-[10px] text-craft-ink leading-none">
+                  Read &amp; View →
+                </span>
+              </div>
+            `;
+
+          // Door front illustration: Rocket for Days 1–24, Close-Up Sunflower Portrait for Door 25!
+          const doorIllustrationHTML = isFinal
+            ? getCloseUpSunflowerPortraitSVG({
+                sizeClass: 'w-16 h-16 sm:w-[72px] sm:h-[72px] lg:w-[80px] lg:h-[80px]'
+              })
+            : getSunflowerRocketSVG({
+                variant: dayNum,
+                sizeClass: 'w-14 h-14 sm:w-16 sm:h-16 lg:w-[74px] lg:h-[74px]'
+              });
+
+          const doorFrontHTML = `
+            <div class="door-flap-front" style="background-color: ${item.cardColor};">
+              <!-- Semicircular thumb-notch cutout on right side -->
+              <div class="finger-notch"></div>
+
+              <!-- Top Row: Stamped Door Number + Eclipse Year -->
+              <div class="w-full flex items-center justify-between gap-1 z-10">
+                <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full cotton-paper border-2 border-craft-ink flex items-center justify-center font-storybook font-bold text-xs sm:text-sm text-craft-ink shadow-[0_2px_0_#231b18]">
+                  ${dayNum}
+                </span>
+                <span class="px-1.5 py-0.5 rounded bg-craft-ink/85 text-craft-cream font-stamp text-[10px] tracking-tight">
+                  ${yearBadge}
+                </span>
+              </div>
+
+              <!-- Center Hand-Drawn Illustration -->
+              <div class="sketch-bob my-auto flex items-center justify-center" style="animation-delay: ${(gridIdx * 0.19) % 2.5}s;">
+                ${doorIllustrationHTML}
+              </div>
+
+              <!-- Bottom Label: UK Eclipse Date & Type (or Door 25 Mystery) -->
+              <div class="w-full bg-craft-cream/95 border-[1.5px] border-craft-ink rounded px-1.5 py-0.5 text-center z-10">
+                ${
+                  isFinal
+                    ? `<div class="font-stamp text-[10px] sm:text-[11px] text-craft-terracotta leading-tight truncate">OCTOBER MYSTERY</div>`
+                    : `
+                      <div class="font-stamp text-[9.5px] sm:text-[10px] text-craft-ink leading-tight truncate">${item.eclipseDate}</div>
+                      <div class="font-hand font-bold text-[10.5px] sm:text-[11px] text-[#4e3928] leading-tight truncate">${item.eclipseType}</div>
+                    `
+                }
+              </div>
+            </div>
+
+            <!-- Inner raw kraft cardboard backing seen when door swings open -->
+            <div class="door-flap-back">
+              <div class="text-center opacity-75">
+                <div class="font-storybook font-bold text-sm text-craft-ink">#${dayNum}</div>
+                <div class="font-stamp text-[9px] text-craft-ink uppercase">${isFinal ? 'Mission' : 'UK Eclipse'}</div>
+              </div>
+            </div>
+          `;
+
+          slotEl.innerHTML = `
+            <div class="door-recessed-pocket" title="Open Door #${dayNum}">
+              ${innerPocketHTML}
+            </div>
+            <div class="door-cardboard-flap" role="button" tabindex="0" aria-label="Door ${dayNum}: ${item.eclipseDate} - ${item.eclipseType}">
+              ${doorFrontHTML}
+            </div>
+          `;
+
+          const flapEl = slotEl.querySelector('.door-cardboard-flap');
+          const pocketEl = slotEl.querySelector('.door-recessed-pocket');
+
+          const handleDoorOpen = () => {
+            if (!openedDoors[dayNum]) {
+              openedDoors[dayNum] = true;
+              saveOpenedDoors();
+              slotEl.classList.add('is-open');
+              playCraftSound('creak');
+              document.getElementById('opened-counter').textContent = `${Object.keys(openedDoors).length} / 25`;
+
+              setTimeout(() => {
+                openScrapbookModal(dayNum, false);
+              }, 430);
+            } else {
+              openScrapbookModal(dayNum, false);
+            }
+          };
+
+          flapEl.addEventListener('click', handleDoorOpen);
+          pocketEl.addEventListener('click', handleDoorOpen);
+          flapEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleDoorOpen();
+            }
+          });
+
+          grid.appendChild(slotEl);
+        });
+      }
+
+      /* ======================================================================
+         8. SCRAPBOOK & HANGMAN MODAL + LEFT / RIGHT DOOR NAVIGATION
+         ====================================================================== */
+      function openScrapbookModal(dayNum, isFlipping = false) {
+        const item = getDayRecord(dayNum);
+        if (!item) return;
+
+        activeModalDay = dayNum;
+
+        // Mark visited door as open on the calendar board
+        if (!openedDoors[dayNum]) {
+          openedDoors[dayNum] = true;
+          saveOpenedDoors();
+        }
+        renderAdventBoard();
+
+        playCraftSound(isFlipping ? 'page' : 'creak');
+
+        document.getElementById('modal-door-stamp').textContent = `DOOR ${dayNum} OF 25`;
+        document.getElementById('modal-door-heading').textContent =
+          dayNum === 25
+            ? 'Door 25 — Close-Up Astronaut Sunflower Hangman'
+            : `${item.eclipseDate} — ${item.eclipseType}`;
+
+        const body = document.getElementById('modal-page-body');
+        if (dayNum === 25) {
+          renderDoor25HangmanPage(body);
+        } else {
+          renderDayScrapbookPage(body, item);
+        }
+
+        const modal = document.getElementById('scrapbook-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeScrapbookModal() {
+        const modal = document.getElementById('scrapbook-modal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        activeModalDay = null;
+        renderAdventBoard();
+      }
+
+      function navigateDoor(delta) {
+        if (activeModalDay === null) return;
+        let nextDay = activeModalDay + delta;
+        if (nextDay < 1) nextDay = 25;
+        if (nextDay > 25) nextDay = 1;
+        openScrapbookModal(nextDay, true);
+      }
+
+      /* ======================================================================
+         9. DAYS 1–24 STATIC POLAROID SCRAPBOOK PAGE
+         ====================================================================== */
+      function renderDayScrapbookPage(container, item) {
+        const mediaList = Array.isArray(item.media) ? item.media : [];
+        let gridColsClass = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3';
+        if (mediaList.length === 1) {
+          gridColsClass = 'grid-cols-1 max-w-lg mx-auto';
+        } else if (mediaList.length === 2 || mediaList.length === 4) {
+          gridColsClass = 'grid-cols-1 md:grid-cols-2';
+        }
+
+        container.innerHTML = `
+          <!-- Hand-Stamped UK Eclipse Note & Personal Story Card -->
+          <div class="relative kraft-cardboard border-2 border-craft-ink rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 shadow-[0_4px_0_rgba(35,27,24,0.3)]">
+            <div class="washi-tape -top-2.5 left-8 -rotate-2"></div>
+            <div class="shrink-0">
+              ${getSunflowerRocketSVG({
+                variant: item.day,
+                sizeClass: 'w-20 h-20'
+              })}
+            </div>
+            <div class="text-center sm:text-left flex-1">
+              <div class="inline-flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
+                <span class="px-2.5 py-0.5 rounded bg-craft-ink text-craft-cream font-stamp text-xs">
+                  ${item.eclipseDate}
+                </span>
+                <span class="px-2.5 py-0.5 rounded bg-craft-cream border border-craft-ink font-stamp text-xs text-craft-ink">
+                  ${item.eclipseType} • UK
+                </span>
+              </div>
+              <p class="font-hand text-lg sm:text-xl text-craft-ink leading-relaxed">
+                “${escapeHTML(item.story)}”
+              </p>
+            </div>
+          </div>
+
+          <!-- Responsive Taped Static Polaroid Frames (1, 2, 3, or 8 items) -->
+          <div class="grid ${gridColsClass} gap-5 sm:gap-6 pt-2">
+            ${mediaList.map((src, idx) => buildStaticPolaroidHTML(item, src, idx, mediaList.length)).join('')}
+          </div>
+        `;
+
+        // Attach anti-download guards, <canvas> photo decoder, and Lightbox handlers
+        mediaList.forEach((rawSrc, idx) => {
+          const cardEl = document.getElementById(`static-polaroid-${item.day}-${idx}`);
+          const mediaEl = document.getElementById(`static-media-${item.day}-${idx}`);
+          const shieldEl = document.getElementById(`static-shield-${item.day}-${idx}`);
+          const fallbackEl = document.getElementById(`static-fallback-${item.day}-${idx}`);
+          const loadingBadgeEl = document.getElementById(`static-loading-${item.day}-${idx}`);
+          if (!mediaEl) return;
+
+          attachAntiSaveGuards(cardEl, { notifyOnContext: true });
+          attachAntiSaveGuards(mediaEl, { notifyOnContext: true });
+
+          const candidates = getMediaCandidates(rawSrc);
+          let candidateIdx = 0;
+
+          const showDarkroomFallback = () => {
+            if (loadingBadgeEl) loadingBadgeEl.classList.add('hidden');
+            mediaEl.classList.add('hidden');
+            if (shieldEl) shieldEl.classList.add('hidden');
+            if (fallbackEl) fallbackEl.classList.remove('hidden');
+          };
+
+          if (isVideoFile(rawSrc)) {
+            mediaEl.addEventListener('error', () => {
+              candidateIdx += 1;
+              if (candidateIdx < candidates.length) {
+                mediaEl.src = candidates[candidateIdx];
+              } else {
+                showDarkroomFallback();
+              }
+            });
+          } else {
+            let photoReady = false;
+            if (shieldEl) {
+              attachAntiSaveGuards(shieldEl, { notifyOnContext: true });
+              shieldEl.addEventListener('click', () => {
+                if (photoReady && mediaEl.width > 0 && mediaEl.height > 0) {
+                  openLightboxFromCanvas(
+                    mediaEl,
+                    `Day ${item.day} (${item.eclipseDate}) — ${item.eclipseType}`
+                  );
+                }
+              });
+            }
+
+            renderProtectedPhotoToCanvas(mediaEl, rawSrc, {
+              onLoaded: () => {
+                photoReady = true;
+                if (loadingBadgeEl) loadingBadgeEl.classList.add('hidden');
+              },
+              onError: () => {
+                showDarkroomFallback();
+              }
+            });
+          }
+        });
+      }
+
+      function buildStaticPolaroidHTML(item, src, idx, totalCount = 1) {
+        const tilts = ['-rotate-1', 'rotate-1', '-rotate-0.5', 'rotate-0.5'];
+        const tiltClass = tilts[idx % tilts.length];
+        const isVideo = isVideoFile(src);
+        const wellHeightClass = totalCount >= 3 ? 'h-56 sm:h-60' : 'h-64 sm:h-72';
+        const initialCand = getMediaCandidates(src)[0];
+
+        return `
+          <div
+            id="static-polaroid-${item.day}-${idx}"
+            class="protected-polaroid-card relative bg-[#fffdf8] border-2 border-craft-ink rounded-sm p-3.5 pb-4 shadow-[0_8px_18px_rgba(35,27,24,0.28)] ${tiltClass} flex flex-col justify-between"
+          >
+            <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 ${idx % 2 === 0 ? 'rotate-2' : '-rotate-2'}"></div>
+
+            <!-- Polaroid Media Well -->
+            <div class="relative bg-[#1c1714] border border-craft-ink/40 ${wellHeightClass} flex items-center justify-center overflow-hidden group">
+              ${
+                isVideo
+                  ? `<video
+                      id="static-media-${item.day}-${idx}"
+                      src="${escapeAttr(initialCand)}"
+                      controls
+                      controlsList="nodownload noremoteplayback"
+                      disablePictureInPicture
+                      disableRemotePlayback
+                      draggable="false"
+                      playsinline
+                      preload="metadata"
+                      class="w-full h-full object-contain"
+                    ></video>`
+                  : `<canvas
+                      id="static-media-${item.day}-${idx}"
+                      aria-label="Day ${item.day} protected keepsake ${idx + 1}"
+                      class="max-w-full max-h-full w-auto h-auto object-contain pointer-events-none transition-transform duration-200 group-hover:scale-[1.02]"
+                    ></canvas>
+                    <!-- Invisible protective shield blocking Save Image, drag, and mobile long-press -->
+                    <div
+                      id="static-shield-${item.day}-${idx}"
+                      title="Click to enlarge Polaroid"
+                      class="protected-media-shield absolute inset-0 z-10 cursor-zoom-in"
+                    ></div>
+                    <!-- Subtle Developing Film Overlay while drawing canvas -->
+                    <div
+                      id="static-loading-${item.day}-${idx}"
+                      class="absolute inset-0 bg-[#231b18]/75 text-craft-ochre flex flex-col items-center justify-center p-3 text-center pointer-events-none"
+                    >
+                      <div class="text-2xl animate-pulse mb-1">🎞️</div>
+                      <div class="font-stamp text-xs tracking-wide">Developing Polaroid…</div>
+                    </div>`
+              }
+
+              <!-- Vintage Darkroom Contact-Sheet Fallback (shown if file is missing) -->
+              <div
+                id="static-fallback-${item.day}-${idx}"
+                class="hidden w-full h-full bg-[#efe4cf] text-craft-ink p-4 flex flex-col items-center justify-center text-center border-2 border-dashed border-[#a68967]"
+              >
+                <div class="text-3xl mb-1.5">${isVideo ? '🎞️' : '📷'}</div>
+                <div class="font-storybook font-bold text-sm text-craft-ink">
+                  Darkroom Contact Sheet #${idx + 1}
+                </div>
+                <p class="font-hand text-xs text-[#5b4431] mt-1 max-w-[230px]">
+                  Place this file in your repository root (or inside <code>media/</code>) to develop this Polaroid:
+                </p>
+                <code class="mt-2 px-2.5 py-1 rounded bg-craft-ink text-craft-ochre font-stamp text-xs">
+                  ${escapeHTML(src)}
+                </code>
+              </div>
+            </div>
+
+            <!-- Handwritten Polaroid Margin Note -->
+            <div class="pt-3 flex items-center justify-between gap-2 px-1">
+              <span class="font-script text-xl text-craft-ink">
+                Day ${item.day}
+              </span>
+              <span class="font-stamp text-[10px] text-[#7a6048] uppercase">
+                ${isVideo ? 'Video #' + (idx + 1) : 'Snapshot #' + (idx + 1)}
+              </span>
+            </div>
+          </div>
+        `;
+      }
+
+      /* ======================================================================
+         10. DOOR 25 — CLOSE-UP ASTRONAUT SUNFLOWER HANGMAN DIORAMA & GAME
+         ====================================================================== */
+      function buildCloseUpHangmanDioramaSVG(wrongCount, status) {
+        const isWon = status === 'won';
+        const isLost = status === 'lost';
+        const chancesLeft = Math.max(0, HANGMAN_MAX_CHANCES - wrongCount);
+
+        // 5 Visual Danger Progression Stages on the Close-Up Astronaut Sunflower
+        const showWarningReflection = !isWon && wrongCount >= 1;
+        const showTractorBeam = !isWon && wrongCount >= 2;
+        const showVisorCrack = !isWon && wrongCount >= 3;
+        const showAlienTentacle = !isWon && wrongCount >= 4;
+
+        // Expressive eyes & mouth per stage
+        let eyesSVG = `
+          <circle cx="-10.5" cy="-3" r="7.5" fill="#231b18"/>
+          <circle cx="10.5" cy="-3" r="7.5" fill="#231b18"/>
+          <circle cx="-12.8" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+          <circle cx="8.2" cy="-5.8" r="2.8" fill="#fbf7ef"/>
+        `;
+        let mouthSVG = `<path d="M-8 8.5 Q0 18 8 8.5 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>`;
+
+        if (isWon) {
+          eyesSVG = `
+            <text x="-17" y="2" font-size="15" fill="#eab64d" stroke="#231b18" stroke-width="0.8" font-weight="bold">★</text>
+            <text x="4" y="2" font-size="15" fill="#eab64d" stroke="#231b18" stroke-width="0.8" font-weight="bold">★</text>
+          `;
+          mouthSVG = `<path d="M-9 8 Q0 21 9 8 Z" fill="#e07a5f" stroke="#231b18" stroke-width="2.6" stroke-linejoin="round"/>`;
+        } else if (isLost) {
+          eyesSVG = `
+            <text x="-17" y="2" font-size="14" fill="#fbf7ef" font-weight="bold">@</text>
+            <text x="4" y="2" font-size="14" fill="#fbf7ef" font-weight="bold">@</text>
+          `;
+          mouthSVG = `<path d="M-8 14 Q0 7 8 14" fill="none" stroke="#fbf7ef" stroke-width="2.8" stroke-linecap="round"/>`;
+        } else if (wrongCount >= 3) {
+          eyesSVG = `
+            <circle cx="-10.5" cy="-3" r="8.5" fill="#fbf7ef" stroke="#231b18" stroke-width="2.2"/>
+            <circle cx="10.5" cy="-3" r="8.5" fill="#fbf7ef" stroke="#231b18" stroke-width="2.2"/>
+            <circle cx="-9.5" cy="-3" r="3.2" fill="#231b18"/>
+            <circle cx="11.5" cy="-3" r="3.2" fill="#231b18"/>
+          `;
+          mouthSVG = `<ellipse cx="0" cy="11" rx="5.5" ry="6.5" fill="#231b18"/>`;
+        } else if (wrongCount >= 1) {
+          mouthSVG = `<path d="M-8 11 Q-4 7 0 11 Q4 15 8 11" fill="none" stroke="#fbf7ef" stroke-width="2.6" stroke-linecap="round"/>`;
+        }
+
+        const headTilt = isLost
+          ? 'translate(180, 74) rotate(-24) scale(0.86)'
+          : wrongCount === 4
+            ? 'translate(180, 96) rotate(7)'
+            : wrongCount === 3
+              ? 'translate(180, 94) rotate(-6)'
+              : 'translate(180, 92)';
+
+        return `
+          <svg viewBox="0 0 360 195" class="w-full max-w-md mx-auto h-48 sm:h-52 rounded-xl bg-[#202434] border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] overflow-hidden">
+            <!-- Hand-dotted gouache stars -->
+            <circle cx="34" cy="28" r="2.2" fill="#f7f0e2" opacity="0.85"/>
+            <circle cx="72" cy="152" r="2.4" fill="#eab64d" opacity="0.8"/>
+            <circle cx="290" cy="34" r="2.2" fill="#7eb2cf" opacity="0.9"/>
+            <circle cx="322" cy="144" r="2.4" fill="#f7f0e2" opacity="0.85"/>
+            <circle cx="54" cy="84" r="1.8" fill="#e07a5f" opacity="0.85"/>
+
+            <!-- Stage 2+: Glowing Alien Tractor Beam locking down from above -->
+            ${showTractorBeam ? `
+              <polygon
+                points="146,0 214,0 268,195 92,195"
+                fill="${isLost ? 'rgba(130, 176, 122, 0.34)' : 'rgba(130, 176, 122, 0.18)'}"
+              />
+              <ellipse cx="180" cy="14" rx="44" ry="8" fill="#82b07a" stroke="#231b18" stroke-width="2.4"/>
+            ` : ''}
+
+            <!-- Close-Up Astronaut Sunflower Portrait -->
+            <g transform="${headTilt}">
+              <!-- Suit Shoulders -->
+              <path d="M-54 88 C-48 62, -26 54, 0 54 C26 54, 48 62, 54 88 Z" fill="#f6efe2" stroke="#231b18" stroke-width="3.2"/>
+              <circle cx="-30" cy="74" r="6.5" fill="#c84232" stroke="#231b18" stroke-width="2.2"/>
+              <rect x="22" y="68" width="15" height="10" rx="2.5" fill="#7eb2cf" stroke="#231b18" stroke-width="2.2"/>
+
+              <!-- Helmet Collar Ring -->
+              <rect x="-38" y="46" width="76" height="13" rx="6.5" fill="#b28859" stroke="#231b18" stroke-width="3"/>
+
+              <!-- Golden Sunflower Petals pressing inside glass helmet -->
+              ${[0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5, 315, 337.5].map((deg, idx) => `
+                <ellipse
+                  cx="0"
+                  cy="-37"
+                  rx="9.5"
+                  ry="17"
+                  fill="${idx % 2 === 0 ? '#eab64d' : '#f2c35b'}"
+                  stroke="#231b18"
+                  stroke-width="2.6"
+                  transform="rotate(${deg})"
+                />
+              `).join('')}
+
+              <!-- Sunflower Seed Center Face -->
+              <circle cx="0" cy="0" r="28" fill="#6e3b1e" stroke="#231b18" stroke-width="3.2"/>
+              ${eyesSVG}
+              ${mouthSVG}
+              <ellipse cx="-18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+              <ellipse cx="18" cy="6" rx="4.8" ry="2.6" fill="#e07a5f" opacity="0.88"/>
+
+              <!-- Glass Bubble Helmet -->
+              <circle
+                cx="0"
+                cy="0"
+                r="56"
+                fill="${showWarningReflection ? 'rgba(200, 66, 50, 0.16)' : 'rgba(251, 247, 239, 0.14)'}"
+                stroke="#231b18"
+                stroke-width="3.5"
+              />
+              <path d="M-38 -32 A44 44 0 0 1 -2 -47" fill="none" stroke="#fbf7ef" stroke-width="3.8" stroke-linecap="round" opacity="0.88"/>
+
+              <!-- Stage 1+: Red Warning Reflection on Glass Visor -->
+              ${showWarningReflection ? `
+                <g transform="translate(33, -24)">
+                  <circle cx="0" cy="0" r="10" fill="#c84232" stroke="#231b18" stroke-width="2.2"/>
+                  <text x="-3" y="4.5" font-family="Special Elite, monospace" font-size="13" font-weight="bold" fill="#fbf7ef">!</text>
+                </g>
+              ` : ''}
+
+              <!-- Stage 3+: Glass Visor Crack + Masking Tape Patch -->
+              ${showVisorCrack ? `
+                <path d="M22 -34 L10 -15 L25 -3 L13 14" fill="none" stroke="#fbf7ef" stroke-width="2.8" stroke-linecap="round"/>
+                <rect x="9" y="-13" width="18" height="6" fill="#eab64d" stroke="#231b18" stroke-width="1.5" transform="rotate(-18 18 -10)"/>
+              ` : ''}
+
+              <!-- Stage 4+: Green Alien Tentacle Tapping the Top of the Helmet -->
+              ${showAlienTentacle ? `
+                <path
+                  d="M72 -92 Q42 -68 18 -56 Q8 -51 14 -43 Q22 -39 34 -47 Q56 -61 84 -86 Z"
+                  fill="#82b07a"
+                  stroke="#231b18"
+                  stroke-width="2.8"
+                  stroke-linejoin="round"
+                />
+                <circle cx="38" cy="-58" r="2.4" fill="#eab64d"/>
+                <circle cx="52" cy="-67" r="2.4" fill="#eab64d"/>
+              ` : ''}
+
+              <!-- Victory: Cute Green Alien Antennae Sprouting on the Helmet! -->
+              ${isWon ? `
+                <g transform="translate(0, -56)">
+                  <path d="M-16 3 L-26 -20" stroke="#231b18" stroke-width="3.6" stroke-linecap="round"/>
+                  <circle cx="-26" cy="-21" r="7" fill="#82b07a" stroke="#231b18" stroke-width="2.8"/>
+                  <path d="M16 3 L26 -20" stroke="#231b18" stroke-width="3.6" stroke-linecap="round"/>
+                  <circle cx="26" cy="-21" r="7" fill="#82b07a" stroke="#231b18" stroke-width="2.8"/>
+                </g>
+              ` : ''}
+            </g>
+
+            <!-- Hand-Stamped Status Tag in Corner -->
+            <g transform="translate(10, 172)">
+              <rect x="0" y="-14" width="174" height="22" rx="4" fill="#f6efe2" stroke="#231b18" stroke-width="2"/>
+              <text x="9" y="1" font-family="Special Elite, monospace" font-size="10.5" font-weight="bold" fill="${chancesLeft <= 1 && !isWon ? '#c84232' : '#231b18'}">
+                ${isWon ? 'RORY WAS AN ALIEN! 👽' : isLost ? 'BEAMED UP! 0/5 LEFT' : `${chancesLeft} OF 5 CHANCES LEFT`}
+              </text>
+            </g>
+          </svg>
+        `;
+      }
+
+      function renderDoor25HangmanPage(container) {
+        const { word, guessed, wrong, maxChances, status } = hangman;
+        const chancesLeft = Math.max(0, maxChances - wrong);
+
+        const letterSlotsHTML = word
+          .split('')
+          .map((ch) => {
+            const shown = guessed.has(ch) || status === 'lost';
+            const missed = status === 'lost' && !guessed.has(ch);
+            return `
+              <div class="w-12 h-14 sm:w-16 sm:h-20 rounded-lg border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] flex items-center justify-center font-storybook font-bold text-2xl sm:text-4xl transition-transform ${
+                shown
+                  ? missed
+                    ? 'bg-craft-terracotta text-white'
+                    : 'bg-craft-ochre text-craft-ink scale-105'
+                  : 'bg-[#ebe0cc] text-transparent'
+              }">
+                ${shown ? ch : '_'}
+              </div>
+            `;
+          })
+          .join('');
+
+        const chanceTokensHTML = Array.from({ length: maxChances })
+          .map((_, idx) => {
+            const alive = idx < chancesLeft;
+            return `
+              <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border-2 border-craft-ink text-base transition-all ${
+                alive ? 'bg-craft-ochre shadow-[0_2px_0_#231b18]' : 'bg-[#dcd0bc] opacity-40 grayscale'
+              }" title="${alive ? 'Chance remaining' : 'Chance used'}">
+                🌻
+              </span>
+            `;
+          })
+          .join('');
+
+        const keyboardRows = [
+          ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+          ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+          ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
+        ];
+
+        const keyboardHTML = keyboardRows
+          .map(
+            (row) => `
+            <div class="flex flex-wrap justify-center gap-1.5 sm:gap-2">
+              ${row
+                .map((letter) => {
+                  const used = guessed.has(letter);
+                  const hit = used && word.includes(letter);
+                  const miss = used && !word.includes(letter);
+
+                  let tileBg = 'bg-[#fffdf8] hover:bg-[#f4e7cf] text-craft-ink';
+                  if (hit) tileBg = 'bg-craft-sage text-craft-ink';
+                  else if (miss) tileBg = 'bg-[#dfd3be] text-[#8d7963] line-through';
+
+                  return `
+                    <button
+                      type="button"
+                      data-key="${letter}"
+                      ${used || status !== 'playing' ? 'disabled' : ''}
+                      class="hangman-tile craft-btn w-8 h-10 sm:w-11 sm:h-12 rounded-lg font-stamp text-sm sm:text-lg flex items-center justify-center cursor-pointer ${tileBg}"
+                    >
+                      ${letter}
+                    </button>
+                  `;
+                })
+                .join('')}
+            </div>
+          `
+          )
+          .join('');
+
+        let outcomeBanner = '';
+        if (status === 'won') {
+          outcomeBanner = `
+            <div class="rounded-xl bg-craft-sage border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] p-3.5 text-center">
+              <div class="font-storybook font-bold text-xl sm:text-2xl text-craft-ink">
+                🎉 Spot on! Rory was an ALIEN in October! 👽🌻🚀
+              </div>
+              <p class="font-hand text-sm sm:text-base text-craft-ink mt-0.5">
+                You saved the Astronaut Sunflower and unlocked the final secret of the calendar!
+              </p>
+            </div>
+          `;
+        } else if (status === 'lost') {
+          outcomeBanner = `
+            <div class="rounded-xl bg-craft-terracotta text-white border-[2.5px] border-craft-ink shadow-[0_4px_0_#231b18] p-3.5 text-center">
+              <div class="font-storybook font-bold text-xl sm:text-2xl">
+                Out of chances! (0 / 5 left)
+              </div>
+              <p class="font-hand text-sm sm:text-base mt-0.5">
+                The secret word was <span class="underline font-bold">ALIEN</span>. Hit Play Again to rescue the sunflower!
+              </p>
+            </div>
+          `;
+        }
+
+        container.innerHTML = `
+          <div id="hangman-sheet-wrap" class="relative space-y-4">
+            <!-- Clue & 5 Chances Header Card -->
+            <div class="relative kraft-cardboard border-2 border-craft-ink rounded-xl p-4 flex flex-col md:flex-row items-center justify-between gap-3">
+              <div class="washi-tape -top-3 left-6 -rotate-2"></div>
+              <div class="text-center md:text-left">
+                <span class="inline-block px-2.5 py-0.5 rounded bg-craft-terracotta text-white font-stamp text-xs uppercase border border-craft-ink mb-1">
+                  Door 25 • Final Riddle
+                </span>
+                <h3 class="font-storybook font-bold text-xl sm:text-2xl text-craft-ink">
+                  ${HANGMAN_CLUE}
+                </h3>
+              </div>
+
+              <div class="flex flex-col items-center md:items-end gap-1 shrink-0">
+                <span class="font-stamp text-xs text-craft-ink uppercase">
+                  ${chancesLeft} Chances Left
+                </span>
+                <div class="flex items-center gap-1.5">
+                  ${chanceTokensHTML}
+                </div>
+              </div>
+            </div>
+
+            <!-- Close-Up Astronaut Sunflower Watercolor Diorama -->
+            <div>
+              ${buildCloseUpHangmanDioramaSVG(wrong, status)}
+            </div>
+
+            ${outcomeBanner}
+
+            <!-- 5 Stamped Letter Slots -->
+            <div class="flex items-center justify-center gap-2 sm:gap-3 py-1">
+              ${letterSlotsHTML}
+            </div>
+
+            <!-- Hand-Stamped Letter Keyboard -->
+            <div class="kraft-cardboard border-2 border-craft-ink rounded-xl p-3 sm:p-4 space-y-2">
+              ${keyboardHTML}
+            </div>
+
+            <!-- Play Again Button -->
+            <div class="flex justify-center pt-1">
+              <button
+                id="btn-hangman-restart"
+                type="button"
+                class="craft-btn px-5 py-2 rounded-lg bg-craft-ochre text-craft-ink font-stamp text-xs sm:text-sm flex items-center gap-2 cursor-pointer"
+              >
+                <span>↻</span>
+                <span>Play Again</span>
+              </button>
+            </div>
+          </div>
+        `;
+
+        container.querySelectorAll('.hangman-tile').forEach((btn) => {
+          btn.addEventListener('click', () => handleHangmanGuess(btn.dataset.key));
+        });
+
+        const restartBtn = document.getElementById('btn-hangman-restart');
+        if (restartBtn) {
+          restartBtn.addEventListener('click', () => {
+            hangman = createFreshHangmanState();
+            playCraftSound('page');
+            renderDoor25HangmanPage(container);
+          });
+        }
+
+        if (status === 'won') {
+          spawnPaperStarConfetti(document.getElementById('hangman-sheet-wrap'));
+        }
+      }
+
+      function handleHangmanGuess(rawChar) {
+        if (hangman.status !== 'playing') return;
+        const ch = rawChar.toUpperCase();
+        if (!/^[A-Z]$/.test(ch) || hangman.guessed.has(ch)) return;
+
+        hangman.guessed.add(ch);
+
+        if (hangman.word.includes(ch)) {
+          const solved = hangman.word.split('').every((c) => hangman.guessed.has(c));
+          if (solved) {
+            hangman.status = 'won';
+            playCraftSound('win');
+          } else {
+            playCraftSound('good');
+          }
+        } else {
+          hangman.wrong += 1;
+          if (hangman.wrong >= hangman.maxChances) {
+            hangman.status = 'lost';
+          }
+          playCraftSound('bad');
+        }
+
+        if (activeModalDay === 25) {
+          renderDoor25HangmanPage(document.getElementById('modal-page-body'));
+        }
+      }
+
+      function spawnPaperStarConfetti(parentEl) {
+        if (!parentEl) return;
+        const colors = ['#eab64d', '#c84232', '#82b07a', '#7eb2cf', '#fbf7ef'];
+        for (let i = 0; i < 22; i++) {
+          const star = document.createElement('div');
+          star.className = 'paper-confetti font-storybook font-bold text-lg';
+          star.textContent = i % 2 === 0 ? '★' : '✦';
+          star.style.left = `${8 + Math.random() * 84}%`;
+          star.style.top = `${10 + Math.random() * 25}%`;
+          star.style.color = colors[i % colors.length];
+          star.style.textShadow = '1px 1px 0 #231b18';
+          star.style.animationDelay = `${Math.random() * 0.35}s`;
+          parentEl.appendChild(star);
+          setTimeout(() => star.remove(), 2500);
+        }
+      }
+
+      /* ======================================================================
+         11. PROTECTED CANVAS LIGHTBOX & ESCAPING HELPERS
+         ====================================================================== */
+      function openLightboxFromCanvas(sourceCanvas, caption = '') {
+        const lb = document.getElementById('lightbox-modal');
+        const lbCanvas = document.getElementById('lightbox-canvas');
+        const ctx = lbCanvas.getContext('2d');
+        if (ctx && sourceCanvas) {
+          lbCanvas.width = sourceCanvas.width;
+          lbCanvas.height = sourceCanvas.height;
+          ctx.clearRect(0, 0, lbCanvas.width, lbCanvas.height);
+          ctx.drawImage(sourceCanvas, 0, 0);
+        }
+        document.getElementById('lightbox-caption').textContent = caption;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+      }
+
+      function closeLightbox() {
+        const lb = document.getElementById('lightbox-modal');
+        const lbCanvas = document.getElementById('lightbox-canvas');
+        if (lbCanvas) {
+          const ctx = lbCanvas.getContext('2d');
+          if (ctx) ctx.clearRect(0, 0, lbCanvas.width, lbCanvas.height);
+        }
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+      }
+
+      function escapeHTML(val) {
+        return String(val)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function escapeAttr(val) {
+        return String(val)
+          .replace(/&/g, '&amp;')
+          .replace(/"/g, '&quot;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+      }
+
+      function refreshSoundButton() {
+        document.getElementById('sound-icon').textContent = soundEnabled ? '🔔' : '🔕';
+      }
+
+      /* ======================================================================
+         12. INITIALIZATION
+         ====================================================================== */
+      function init() {
+        initGouacheCosmosBackdrop();
+        renderWingWallpaperPatterns();
+
+        document.getElementById('header-sunflower-stamp').innerHTML = getSunflowerRocketSVG({
+          variant: 1,
+          sizeClass: 'w-12 h-12 sm:w-14 sm:h-14'
+        });
+
+        refreshSoundButton();
+        renderAdventBoard();
+
+        // Modal Left / Right Door Navigation & Close
+        document.getElementById('btn-prev-door').addEventListener('click', () => navigateDoor(-1));
+        document.getElementById('btn-next-door').addEventListener('click', () => navigateDoor(1));
+        document.getElementById('btn-close-modal').addEventListener('click', closeScrapbookModal);
+        document.getElementById('scrapbook-modal').addEventListener('click', (e) => {
+          if (e.target.id === 'scrapbook-modal') closeScrapbookModal();
+        });
+
+        // Sound Toggle
+        document.getElementById('btn-toggle-sound').addEventListener('click', () => {
+          soundEnabled = !soundEnabled;
+          localStorage.setItem(STORAGE_SOUND_KEY, String(soundEnabled));
+          refreshSoundButton();
+          if (soundEnabled) playCraftSound('page');
+        });
+
+        // Reset Doors Dialog
+        const resetModal = document.getElementById('reset-modal');
+        document.getElementById('btn-reset-doors').addEventListener('click', () => {
+          resetModal.classList.remove('hidden');
+          resetModal.classList.add('flex');
+        });
+        document.getElementById('btn-reset-cancel').addEventListener('click', () => {
+          resetModal.classList.add('hidden');
+          resetModal.classList.remove('flex');
+        });
+        document.getElementById('btn-reset-confirm').addEventListener('click', () => {
+          openedDoors = {};
+          saveOpenedDoors();
+          renderAdventBoard();
+          resetModal.classList.add('hidden');
+          resetModal.classList.remove('flex');
+          playCraftSound('creak');
+        });
+
+        // Protected Lightbox guards & close behavior
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxCard = document.getElementById('lightbox-card');
+        const lightboxShield = document.getElementById('lightbox-shield');
+        attachAntiSaveGuards(lightboxModal, { notifyOnContext: true });
+        attachAntiSaveGuards(lightboxCard, { notifyOnContext: true });
+        attachAntiSaveGuards(lightboxShield, { notifyOnContext: true });
+
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) closeLightbox();
+        });
+        document.getElementById('btn-close-lightbox').addEventListener('click', closeLightbox);
+
+        // Global shortcut blockers (Save, Print, View Source, DevTools)
+        document.addEventListener('keydown', (e) => {
+          const keyLower = (e.key || '').toLowerCase();
+          const hasMod = e.ctrlKey || e.metaKey;
+
+          const isBlockedShortcut =
+            (hasMod && (keyLower === 's' || keyLower === 'p' || keyLower === 'u')) ||
+            e.key === 'F12' ||
+            (hasMod && e.shiftKey && (keyLower === 'i' || keyLower === 'j' || keyLower === 'c')) ||
+            (e.metaKey && e.altKey && (keyLower === 'i' || keyLower === 'j' || keyLower === 'u'));
+
+          if (isBlockedShortcut) {
+            e.preventDefault();
+            e.stopPropagation();
+            showPrivacyToast();
+            return;
+          }
+
+          if (e.key === 'Escape') {
+            if (!lightboxModal.classList.contains('hidden')) {
+              closeLightbox();
+            } else if (!resetModal.classList.contains('hidden')) {
+              resetModal.classList.add('hidden');
+              resetModal.classList.remove('flex');
+            } else if (activeModalDay !== null) {
+              closeScrapbookModal();
+            }
+            return;
+          }
+
+          if (activeModalDay !== null) {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              navigateDoor(-1);
+            } else if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              navigateDoor(1);
+            } else if (activeModalDay === 25 && /^[a-zA-Z]$/.test(e.key)) {
+              handleHangmanGuess(e.key);
+            }
+          }
+        });
+      }
+
+      window.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+</body>
+</html>
