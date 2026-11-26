@@ -8,9 +8,6 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- In-browser .HEIC to JPEG decoder for Chrome, Firefox & Edge -->
-  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
-
   <!-- Tactile Rubber-Stamp, Storybook & Handwritten Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -443,6 +440,23 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #c84232;
     }
+
+    /* Privacy & anti-save protections for keepsake photos & videos */
+    .protected-media-shield,
+    .protected-polaroid-card,
+    .protected-polaroid-card canvas,
+    .protected-polaroid-card video {
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+    }
+
+    @media print {
+      body {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body class="selection:bg-craft-ochre selection:text-craft-ink">
@@ -566,117 +580,7 @@
   </div>
 
   <!-- ========================================================================
-       SCRAPBOOK & HANGMAN MODAL (DOORS 1–24 POLAROIDS + DOOR 25 HANGMAN)
-       ======================================================================== -->
-  <div
-    id="scrapbook-modal"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-5 bg-[#120d0a]/82 backdrop-blur-xs"
-    role="dialog"
-    aria-modal="true"
-  >
-    <div class="scrapbook-unfold relative w-full max-w-4xl max-h-[93vh] flex flex-col cotton-paper handmade-border rounded-2xl overflow-hidden">
-
-      <!-- Scrapbook Top Navigation Bar (Left / Right Door Cycling) -->
-      <div class="kraft-cardboard border-b-[2.5px] border-craft-ink px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-2 shrink-0">
-        <!-- Previous Door Button -->
-        <button
-          id="btn-prev-door"
-          type="button"
-          class="craft-btn px-3 sm:px-4 py-1.5 rounded-lg cotton-paper text-craft-ink font-stamp text-xs sm:text-sm flex items-center gap-1.5 cursor-pointer"
-        >
-          <span>←</span>
-          <span>Previous</span>
-        </button>
-
-        <!-- Stamped Door Title -->
-        <div class="text-center px-2 flex-1 min-w-[190px]">
-          <div class="inline-flex items-center gap-2">
-            <span id="modal-door-stamp" class="px-2.5 py-0.5 rounded bg-craft-terracotta text-white font-stamp text-xs border border-craft-ink">
-              DOOR 1 OF 25
-            </span>
-            <span class="px-2 py-0.5 rounded bg-craft-sage text-craft-ink font-stamp text-[11px] border border-craft-ink">
-              OPENED ✓
-            </span>
-          </div>
-          <h2 id="modal-door-heading" class="font-storybook font-bold text-lg sm:text-2xl text-craft-ink mt-0.5 leading-tight">
-            12 Aug 2026 — Total Solar Eclipse (UK Deep Partial)
-          </h2>
-        </div>
-
-        <!-- Next Door + Close Modal Buttons -->
-        <div class="flex items-center gap-2">
-          <button
-            id="btn-next-door"
-            type="button"
-            class="craft-btn px-3 sm:px-4 py-1.5 rounded-lg bg-craft-ochre text-craft-ink font-stamp text-xs sm:text-sm flex items-center gap-1.5 cursor-pointer"
-          >
-            <span>Next</span>
-            <span>→</span>
-          </button>
-
-          <button
-            id="btn-close-modal"
-            type="button"
-            aria-label="Close scrapbook"
-            class="craft-btn w-9 h-9 rounded-lg bg-craft-terracotta text-white font-stamp text-base flex items-center justify-center cursor-pointer"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-
-      <!-- Scrollable Scrapbook Page Body -->
-      <div id="modal-page-body" class="p-4 sm:p-6 overflow-y-auto flex-1 space-y-5 relative">
-        <!-- Populated dynamically for Doors 1–24 or Door 25 -->
-      </div>
-
-      <!-- Scrapbook Footer Strip -->
-      <div class="bg-[#ede2cd] border-t-2 border-craft-ink px-4 py-2 flex flex-wrap items-center justify-between gap-2 text-xs text-[#594330] font-hand shrink-0">
-        <span>Use ← Previous / Next → buttons (or Left / Right arrow keys) to flip between doors.</span>
-        <span class="font-bold text-craft-terracotta">Visited doors stay swung open on the calendar!</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================
-       HANDMADE RESET DOORS DIALOG (NO NATIVE CONFIRM())
-       ======================================================================== -->
-  <div
-    id="reset-modal"
-    class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-[#120d0a]/75"
-    role="dialog"
-    aria-modal="true"
-  >
-    <div class="scrapbook-unfold w-full max-w-md cotton-paper handmade-border rounded-2xl p-6 text-center relative">
-      <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 -rotate-2"></div>
-      <div class="text-3xl mb-2">📦</div>
-      <h3 class="font-storybook font-bold text-xl text-craft-ink mb-2">
-        Fold all 25 cardboard doors shut?
-      </h3>
-      <p class="font-hand text-base text-[#4e3b2b] mb-5">
-        This will close all swung-open doors on the front of the calendar so you can open them fresh again.
-      </p>
-      <div class="flex items-center justify-center gap-3">
-        <button
-          id="btn-reset-cancel"
-          type="button"
-          class="craft-btn px-5 py-2 rounded-lg bg-[#e6d5bc] text-craft-ink font-stamp text-xs sm:text-sm cursor-pointer"
-        >
-          Keep Open
-        </button>
-        <button
-          id="btn-reset-confirm"
-          type="button"
-          class="craft-btn px-5 py-2 rounded-lg bg-craft-terracotta text-white font-stamp text-xs sm:text-sm cursor-pointer"
-        >
-          Yes, Close Doors
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================================
-       LIGHTBOX FOR FULL-SIZE PHOTO VIEWING
+       LIGHTBOX FOR FULL-SIZE PROTECTED CANVAS PHOTO VIEWING
        ======================================================================== -->
   <div
     id="lightbox-modal"
@@ -685,13 +589,40 @@
     <button
       id="btn-close-lightbox"
       type="button"
-      class="craft-btn absolute top-4 right-4 w-10 h-10 rounded-lg bg-craft-terracotta text-white font-stamp flex items-center justify-center cursor-pointer"
+      class="craft-btn absolute top-4 right-4 z-30 w-10 h-10 rounded-lg bg-craft-terracotta text-white font-stamp flex items-center justify-center cursor-pointer"
     >
       ✕
     </button>
-    <div class="cotton-paper p-3 pb-5 rounded-md border-[3px] border-craft-ink shadow-2xl max-w-full max-h-[90vh] flex flex-col items-center">
-      <img id="lightbox-img" src="" alt="Enlarged Polaroid memory" class="max-w-full max-h-[80vh] object-contain border border-craft-ink/30" />
+    <div
+      id="lightbox-card"
+      class="protected-polaroid-card cotton-paper p-3 pb-5 rounded-md border-[3px] border-craft-ink shadow-2xl max-w-full max-h-[90vh] flex flex-col items-center cursor-default"
+    >
+      <div class="relative flex items-center justify-center overflow-hidden border border-craft-ink/30 bg-[#1c1714]">
+        <canvas
+          id="lightbox-canvas"
+          class="block max-w-[90vw] max-h-[78vh] w-auto h-auto pointer-events-none"
+        ></canvas>
+        <!-- Transparent anti-save & anti-long-press shield over full-size canvas -->
+        <div
+          id="lightbox-shield"
+          class="protected-media-shield absolute inset-0 z-20"
+          aria-hidden="true"
+        ></div>
+      </div>
       <p id="lightbox-caption" class="font-script text-xl text-craft-ink mt-2 text-center"></p>
+    </div>
+  </div>
+
+  <!-- Subtle Handmade Privacy Toast -->
+  <div
+    id="privacy-toast"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[90] pointer-events-none opacity-0 translate-y-2 transition-all duration-200"
+  >
+    <div class="kraft-cardboard border-2 border-craft-ink shadow-[0_4px_0_#231b18] rounded-xl px-4 py-2 flex items-center gap-2 text-craft-ink font-stamp text-xs sm:text-sm whitespace-nowrap">
+      <span>🔒</span>
+      <span>Private keepsake — saving &amp; downloading disabled</span>
     </div>
   </div>
 
@@ -703,11 +634,11 @@
       'use strict';
 
       /* ======================================================================
-         1. STATIC CALENDAR CONFIGURATION (EXACT REPOSITORY FILENAMES)
+         1. STATIC CALENDAR CONFIGURATION (EXACT FINALIZED FILENAMES)
          ----------------------------------------------------------------------
          Place your files in the repository root (or inside `media/`).
-         Supports .HEIC (auto-decoded in browser), .JPG/.jpg, .MOV/.mov/.MP4,
-         multi-photo grids (up to 8 Polaroids), and extensionless file `24`.
+         Supports web-native .webp, .JPG/.jpg, .png, and .mp4/.MP4 across
+         responsive Polaroid grids (1, 2, 3, or 8 items per day).
          ====================================================================== */
       const CALENDAR_DAYS = [
         {
@@ -715,7 +646,7 @@
           eclipseDate: '12 Aug 2026',
           eclipseType: 'Total Solar Eclipse (UK Deep Partial)',
           cardColor: '#eab64d',
-          media: ['1_1.HEIC', '1_2.HEIC'],
+          media: ['1_1.webp', '1_2.webp'],
           story: 'I’m trying to get my mum to start doing things on her own. We went to make bird nesting boxes. She loved it. I think she’s building more momentum to create the life she wants, and it makes me happy.'
         },
         {
@@ -723,7 +654,7 @@
           eclipseDate: '28 Aug 2026',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['2.HEIC'],
+          media: ['2.webp'],
           story: 'Took my board ‘percebe mapuche’ out on the water. Went to a beach with zero waves since I’d already accepted I was just going to be paddling.'
         },
         {
@@ -731,7 +662,7 @@
           eclipseDate: '20 Feb 2027',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['3.HEIC'],
+          media: ['3.webp'],
           story: 'There are really cool mushrooms in Cantabria.'
         },
         {
@@ -763,7 +694,7 @@
           eclipseDate: '6 Jul 2028',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['7.MOV'],
+          media: ['7.mp4'],
           story: 'Discovered one of the most satisfying sounds I’ve ever heard.'
         },
         {
@@ -771,7 +702,7 @@
           eclipseDate: '31 Dec 2028',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['8.HEIC'],
+          media: ['8.webp'],
           story: 'Created a signature look for myself (I’m strictly obsessed with orange and blue).'
         },
         {
@@ -779,7 +710,7 @@
           eclipseDate: '26 Jun 2029',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['9.HEIC'],
+          media: ['9.webp'],
           story: 'Went to a creative dance class with two friends. I got to improvise one-on-one with each of them at some point, which was really sweet. There also happened to be two guys sketching us, so we got to take a drawing home.'
         },
         {
@@ -787,7 +718,7 @@
           eclipseDate: '11 Jul 2029',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#eab64d',
-          media: ['10_1.HEIC', '10_2.jpg'],
+          media: ['10_1.webp', '10_2.jpg'],
           story: 'Printed my first test photos to sell. Wild seeing my photos in print for the first time. A few friends bought my very first prints, which was cute.'
         },
         {
@@ -795,7 +726,7 @@
           eclipseDate: '20 Dec 2029',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['11.HEIC'],
+          media: ['11.webp'],
           story: 'Made a massive banana pancake.'
         },
         {
@@ -803,7 +734,7 @@
           eclipseDate: '1 Jun 2030',
           eclipseType: 'Annular Solar Eclipse (UK Partial)',
           cardColor: '#eab64d',
-          media: ['12.HEIC'],
+          media: ['12.webp'],
           story: 'My friends and I somehow managed to make the most boring bouquet of flowers any of us has ever seen.'
         },
         {
@@ -835,7 +766,7 @@
           eclipseDate: '30 Oct 2031',
           eclipseType: 'Penumbral Lunar Eclipse',
           cardColor: '#a995c9',
-          media: ['16.MOV'],
+          media: ['16.mp4'],
           story: 'My favourite DJ announced a Barcelona date at the very last minute. A friend trusted me with his first-ever clubbing experience. We all left buzzing, and Ale and I came out hyper-inspired.'
         },
         {
@@ -843,7 +774,7 @@
           eclipseDate: '25 Apr 2032',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['17_1.mov', '17_2.mov'],
+          media: ['17_1.mp4', '17_2.mp4'],
           story: 'Testing out the camera and recorder to capture little bits! Ran into some technical hiccups so there are only fragments, but Hangover practice session vol. i rules.'
         },
         {
@@ -851,7 +782,7 @@
           eclipseDate: '18 Oct 2032',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['18.HEIC'],
+          media: ['18.webp'],
           story: 'Go-karting. My friend laughed at me because he’d never seen me scared before doing an activity. Had an absolute blast.'
         },
         {
@@ -859,7 +790,7 @@
           eclipseDate: '14 Apr 2033',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['19.HEIC'],
+          media: ['19.webp'],
           story: 'Trying to keep making my own clothes.'
         },
         {
@@ -867,7 +798,7 @@
           eclipseDate: '8 Oct 2033',
           eclipseType: 'Total Lunar Eclipse',
           cardColor: '#e07a5f',
-          media: ['20.mov'],
+          media: ['20.mp4'],
           story: 'Bought myself a better mixer. Haven’t stopped practising.'
         },
         {
@@ -875,7 +806,7 @@
           eclipseDate: '20 Mar 2034',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#82b07a',
-          media: ['21.MOV'],
+          media: ['21.mp4'],
           story: 'Reused my frog to test out some new stickers. At this point I probably can’t keep using it anymore, but the stickers are pure disco.'
         },
         {
@@ -883,7 +814,7 @@
           eclipseDate: '28 Sep 2034',
           eclipseType: 'Partial Lunar Eclipse',
           cardColor: '#7eb2cf',
-          media: ['22_1.HEIC', '22_2.MOV', '22_3.MP4'],
+          media: ['22_1.webp', '22_2.mp4', '22_3.MP4'],
           story: 'Berlin. Ronya gave me makeup lessons. Would’ve never thought of double pink eyebrows.'
         },
         {
@@ -899,7 +830,7 @@
           eclipseDate: '2 Sep 2035',
           eclipseType: 'Partial Solar Eclipse',
           cardColor: '#eab64d',
-          media: ['24'],
+          media: ['24.png'],
           story: 'Couldn’t pick just one summary song. Pick your fighter. They go from most introspective, to sad, to upbeat, to full party (top to bottom).'
         }
       ];
@@ -974,59 +905,132 @@
         return /\.(mp4|webm|mov|m4v|ogg)(\?.*)?$/i.test(filePath);
       }
 
-      function isHeicFile(filePath) {
-        return /\.(heic|heif)(\?.*)?$/i.test(filePath);
-      }
-
       function getMediaCandidates(rawSrc) {
-        if (rawSrc === '24') {
-          return [
-            '24',
-            'media/24',
-            '24.png',
-            '24.PNG',
-            '24.jpg',
-            '24.JPG',
-            '24.jpeg',
-            '24.HEIC',
-            'media/24.png',
-            'media/24.PNG',
-            'media/24.jpg',
-            'media/24.JPG',
-            'media/24.jpeg',
-            'media/24.HEIC'
-          ];
-        }
         if (!rawSrc.startsWith('media/')) {
           return [rawSrc, `media/${rawSrc}`];
         }
         return [rawSrc];
       }
 
-      // Cache converted .HEIC -> JPEG blob URLs so flipping doors is instantaneous
-      const heicBlobUrlCache = new Map();
+      /* ======================================================================
+         2B. PRIVACY & ANTI-DOWNLOAD HELPERS (CANVAS RENDERING + TOAST)
+         ====================================================================== */
+      let privacyToastTimer = null;
 
-      async function resolveHeicBlobUrl(candidateUrl) {
-        if (heicBlobUrlCache.has(candidateUrl)) {
-          return heicBlobUrlCache.get(candidateUrl);
-        }
-        if (typeof window.heic2any !== 'function') {
-          throw new Error('heic2any library unavailable');
-        }
-        const response = await fetch(candidateUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status} for ${candidateUrl}`);
-        }
-        const blob = await response.blob();
-        const converted = await window.heic2any({
-          blob,
-          toType: 'image/jpeg',
-          quality: 0.88
+      function showPrivacyToast() {
+        const toast = document.getElementById('privacy-toast');
+        if (!toast) return;
+        toast.classList.remove('opacity-0', 'translate-y-2');
+        toast.classList.add('opacity-100', 'translate-y-0');
+        clearTimeout(privacyToastTimer);
+        privacyToastTimer = setTimeout(() => {
+          toast.classList.add('opacity-0', 'translate-y-2');
+          toast.classList.remove('opacity-100', 'translate-y-0');
+        }, 2300);
+      }
+
+      function attachAntiSaveGuards(el, { notifyOnContext = true } = {}) {
+        if (!el) return;
+        el.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (notifyOnContext) showPrivacyToast();
         });
-        const jpegBlob = Array.isArray(converted) ? converted[0] : converted;
-        const objectUrl = URL.createObjectURL(jpegBlob);
-        heicBlobUrlCache.set(candidateUrl, objectUrl);
-        return objectUrl;
+        el.addEventListener('dragstart', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        });
+        el.addEventListener('selectstart', (e) => {
+          e.preventDefault();
+        });
+        el.addEventListener('copy', (e) => {
+          e.preventDefault();
+          showPrivacyToast();
+        });
+      }
+
+      // Fetch image as Blob -> decode via createImageBitmap -> draw onto <canvas> -> revoke immediately
+      async function drawBlobUrlToCanvas(canvas, blob) {
+        const ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('Canvas 2D context unavailable');
+
+        if (typeof window.createImageBitmap === 'function') {
+          const bitmap = await createImageBitmap(blob);
+          canvas.width = bitmap.width;
+          canvas.height = bitmap.height;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(bitmap, 0, 0);
+          if (typeof bitmap.close === 'function') bitmap.close();
+          return;
+        }
+
+        // Fallback for older browsers without createImageBitmap
+        const tempUrl = URL.createObjectURL(blob);
+        try {
+          await new Promise((resolve, reject) => {
+            const offscreenImg = new Image();
+            offscreenImg.onload = () => {
+              canvas.width = offscreenImg.naturalWidth || offscreenImg.width;
+              canvas.height = offscreenImg.naturalHeight || offscreenImg.height;
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              ctx.drawImage(offscreenImg, 0, 0);
+              resolve();
+            };
+            offscreenImg.onerror = () => reject(new Error('Offscreen decode failed'));
+            offscreenImg.src = tempUrl;
+          });
+        } finally {
+          URL.revokeObjectURL(tempUrl);
+        }
+      }
+
+      // Offscreen Image fallback only if opened directly via file:// where fetch() is blocked by CORS
+      function drawOffscreenImageFallbackToCanvas(canvas, url) {
+        return new Promise((resolve, reject) => {
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            reject(new Error('Canvas 2D context unavailable'));
+            return;
+          }
+          const offscreenImg = new Image();
+          offscreenImg.onload = () => {
+            canvas.width = offscreenImg.naturalWidth || offscreenImg.width;
+            canvas.height = offscreenImg.naturalHeight || offscreenImg.height;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(offscreenImg, 0, 0);
+            resolve();
+          };
+          offscreenImg.onerror = () => reject(new Error(`Failed to load ${url}`));
+          offscreenImg.src = url;
+        });
+      }
+
+      async function renderProtectedPhotoToCanvas(canvas, rawSrc, { onLoaded, onError } = {}) {
+        const candidates = getMediaCandidates(rawSrc);
+
+        for (const candidateUrl of candidates) {
+          try {
+            const response = await fetch(candidateUrl, { credentials: 'same-origin' });
+            if (!response.ok) continue;
+            const blob = await response.blob();
+            await drawBlobUrlToCanvas(canvas, blob);
+            if (typeof onLoaded === 'function') onLoaded();
+            return;
+          } catch (err) {
+            // If opened locally via file://, try offscreen Image -> canvas without exposing any DOM <img>
+            if (window.location.protocol === 'file:') {
+              try {
+                await drawOffscreenImageFallbackToCanvas(canvas, candidateUrl);
+                if (typeof onLoaded === 'function') onLoaded();
+                return;
+              } catch (offlineErr) {
+                // Try next candidate
+              }
+            }
+          }
+        }
+
+        if (typeof onError === 'function') onError();
       }
 
       /* ======================================================================
@@ -1596,19 +1600,25 @@
           </div>
         `;
 
-        // Attach candidate fallback, .HEIC browser decoding, and Lightbox handlers
+        // Attach anti-download guards, <canvas> photo decoder, and Lightbox handlers
         mediaList.forEach((rawSrc, idx) => {
+          const cardEl = document.getElementById(`static-polaroid-${item.day}-${idx}`);
           const mediaEl = document.getElementById(`static-media-${item.day}-${idx}`);
+          const shieldEl = document.getElementById(`static-shield-${item.day}-${idx}`);
           const fallbackEl = document.getElementById(`static-fallback-${item.day}-${idx}`);
-          const developingBadgeEl = document.getElementById(`static-developing-${item.day}-${idx}`);
+          const loadingBadgeEl = document.getElementById(`static-loading-${item.day}-${idx}`);
           if (!mediaEl) return;
+
+          attachAntiSaveGuards(cardEl, { notifyOnContext: true });
+          attachAntiSaveGuards(mediaEl, { notifyOnContext: true });
 
           const candidates = getMediaCandidates(rawSrc);
           let candidateIdx = 0;
 
           const showDarkroomFallback = () => {
-            if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
+            if (loadingBadgeEl) loadingBadgeEl.classList.add('hidden');
             mediaEl.classList.add('hidden');
+            if (shieldEl) shieldEl.classList.add('hidden');
             if (fallbackEl) fallbackEl.classList.remove('hidden');
           };
 
@@ -1622,59 +1632,26 @@
               }
             });
           } else {
-            let isDecodingHeic = false;
-
-            const tryNextImageCandidate = async () => {
-              if (isDecodingHeic) return;
-              const failedCand = candidates[candidateIdx];
-
-              // If native <img> failed on a .HEIC file (or extensionless '24'), try in-browser heic2any conversion
-              if (
-                failedCand &&
-                (isHeicFile(failedCand) || failedCand === '24' || failedCand === 'media/24')
-              ) {
-                isDecodingHeic = true;
-                if (developingBadgeEl) developingBadgeEl.classList.remove('hidden');
-                try {
-                  const blobUrl = await resolveHeicBlobUrl(failedCand);
-                  isDecodingHeic = false;
-                  if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
-                  mediaEl.src = blobUrl;
-                  return;
-                } catch (err) {
-                  isDecodingHeic = false;
-                  if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
+            let photoReady = false;
+            if (shieldEl) {
+              attachAntiSaveGuards(shieldEl, { notifyOnContext: true });
+              shieldEl.addEventListener('click', () => {
+                if (photoReady && mediaEl.width > 0 && mediaEl.height > 0) {
+                  openLightboxFromCanvas(
+                    mediaEl,
+                    `Day ${item.day} (${item.eclipseDate}) — ${item.eclipseType}`
+                  );
                 }
-              }
+              });
+            }
 
-              candidateIdx += 1;
-              if (candidateIdx < candidates.length) {
-                const nextCand = candidates[candidateIdx];
-                if (isHeicFile(nextCand) && heicBlobUrlCache.has(nextCand)) {
-                  mediaEl.src = heicBlobUrlCache.get(nextCand);
-                } else {
-                  mediaEl.src = nextCand;
-                }
-              } else {
+            renderProtectedPhotoToCanvas(mediaEl, rawSrc, {
+              onLoaded: () => {
+                photoReady = true;
+                if (loadingBadgeEl) loadingBadgeEl.classList.add('hidden');
+              },
+              onError: () => {
                 showDarkroomFallback();
-              }
-            };
-
-            mediaEl.addEventListener('load', () => {
-              if (developingBadgeEl) developingBadgeEl.classList.add('hidden');
-            });
-
-            mediaEl.addEventListener('error', () => {
-              tryNextImageCandidate();
-            });
-
-            mediaEl.addEventListener('click', () => {
-              const resolvedUrl = mediaEl.currentSrc || mediaEl.src;
-              if (resolvedUrl) {
-                openLightbox(
-                  resolvedUrl,
-                  `Day ${item.day} (${item.eclipseDate}) — ${item.eclipseType}`
-                );
               }
             });
           }
@@ -1689,38 +1666,48 @@
         const initialCand = getMediaCandidates(src)[0];
 
         return `
-          <div class="relative bg-[#fffdf8] border-2 border-craft-ink rounded-sm p-3.5 pb-4 shadow-[0_8px_18px_rgba(35,27,24,0.28)] ${tiltClass} flex flex-col justify-between">
+          <div
+            id="static-polaroid-${item.day}-${idx}"
+            class="protected-polaroid-card relative bg-[#fffdf8] border-2 border-craft-ink rounded-sm p-3.5 pb-4 shadow-[0_8px_18px_rgba(35,27,24,0.28)] ${tiltClass} flex flex-col justify-between"
+          >
             <div class="washi-tape -top-3 left-1/2 -translate-x-1/2 ${idx % 2 === 0 ? 'rotate-2' : '-rotate-2'}"></div>
 
             <!-- Polaroid Media Well -->
-            <div class="relative bg-[#1c1714] border border-craft-ink/40 ${wellHeightClass} flex items-center justify-center overflow-hidden">
+            <div class="relative bg-[#1c1714] border border-craft-ink/40 ${wellHeightClass} flex items-center justify-center overflow-hidden group">
               ${
                 isVideo
                   ? `<video
                       id="static-media-${item.day}-${idx}"
                       src="${escapeAttr(initialCand)}"
                       controls
+                      controlsList="nodownload noremoteplayback"
+                      disablePictureInPicture
+                      disableRemotePlayback
+                      draggable="false"
                       playsinline
                       preload="metadata"
                       class="w-full h-full object-contain"
                     ></video>`
-                  : `<img
+                  : `<canvas
                       id="static-media-${item.day}-${idx}"
-                      src="${escapeAttr(initialCand)}"
-                      alt="Day ${item.day} keepsake ${idx + 1}"
+                      aria-label="Day ${item.day} protected keepsake ${idx + 1}"
+                      class="max-w-full max-h-full w-auto h-auto object-contain pointer-events-none transition-transform duration-200 group-hover:scale-[1.02]"
+                    ></canvas>
+                    <!-- Invisible protective shield blocking Save Image, drag, and mobile long-press -->
+                    <div
+                      id="static-shield-${item.day}-${idx}"
                       title="Click to enlarge Polaroid"
-                      class="w-full h-full object-contain cursor-zoom-in hover:scale-[1.02] transition-transform"
-                    />`
+                      class="protected-media-shield absolute inset-0 z-10 cursor-zoom-in"
+                    ></div>
+                    <!-- Subtle Developing Film Overlay while drawing canvas -->
+                    <div
+                      id="static-loading-${item.day}-${idx}"
+                      class="absolute inset-0 bg-[#231b18]/75 text-craft-ochre flex flex-col items-center justify-center p-3 text-center pointer-events-none"
+                    >
+                      <div class="text-2xl animate-pulse mb-1">🎞️</div>
+                      <div class="font-stamp text-xs tracking-wide">Developing Polaroid…</div>
+                    </div>`
               }
-
-              <!-- Subtle Developing Film Overlay while decoding .HEIC in Chrome/Firefox -->
-              <div
-                id="static-developing-${item.day}-${idx}"
-                class="hidden absolute inset-0 bg-[#231b18]/85 text-craft-ochre flex flex-col items-center justify-center p-3 text-center pointer-events-none"
-              >
-                <div class="text-2xl animate-bounce mb-1">🎞️</div>
-                <div class="font-stamp text-xs tracking-wide">Developing .HEIC film…</div>
-              </div>
 
               <!-- Vintage Darkroom Contact-Sheet Fallback (shown if file is missing) -->
               <div
@@ -2134,11 +2121,18 @@
       }
 
       /* ======================================================================
-         11. LIGHTBOX & ESCAPING HELPERS
+         11. PROTECTED CANVAS LIGHTBOX & ESCAPING HELPERS
          ====================================================================== */
-      function openLightbox(src, caption = '') {
+      function openLightboxFromCanvas(sourceCanvas, caption = '') {
         const lb = document.getElementById('lightbox-modal');
-        document.getElementById('lightbox-img').src = src;
+        const lbCanvas = document.getElementById('lightbox-canvas');
+        const ctx = lbCanvas.getContext('2d');
+        if (ctx && sourceCanvas) {
+          lbCanvas.width = sourceCanvas.width;
+          lbCanvas.height = sourceCanvas.height;
+          ctx.clearRect(0, 0, lbCanvas.width, lbCanvas.height);
+          ctx.drawImage(sourceCanvas, 0, 0);
+        }
         document.getElementById('lightbox-caption').textContent = caption;
         lb.classList.remove('hidden');
         lb.classList.add('flex');
@@ -2146,6 +2140,11 @@
 
       function closeLightbox() {
         const lb = document.getElementById('lightbox-modal');
+        const lbCanvas = document.getElementById('lightbox-canvas');
+        if (lbCanvas) {
+          const ctx = lbCanvas.getContext('2d');
+          if (ctx) ctx.clearRect(0, 0, lbCanvas.width, lbCanvas.height);
+        }
         lb.classList.add('hidden');
         lb.classList.remove('flex');
       }
@@ -2194,39 +2193,39 @@
 
         // Sound Toggle
         document.getElementById('btn-toggle-sound').addEventListener('click', () => {
-          soundEnabled = !soundEnabled;
-          localStorage.setItem(STORAGE_SOUND_KEY, String(soundEnabled));
-          refreshSoundButton();
-          if (soundEnabled) playCraftSound('page');
-        });
+        // Protected Lightbox guards & close behavior
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxCard = document.getElementById('lightbox-card');
+        const lightboxShield = document.getElementById('lightbox-shield');
+        attachAntiSaveGuards(lightboxModal, { notifyOnContext: true });
+        attachAntiSaveGuards(lightboxCard, { notifyOnContext: true });
+        attachAntiSaveGuards(lightboxShield, { notifyOnContext: true });
 
-        // Unobtrusive Reset Doors Dialog
-        const resetModal = document.getElementById('reset-modal');
-        document.getElementById('btn-reset-doors').addEventListener('click', () => {
-          resetModal.classList.remove('hidden');
-          resetModal.classList.add('flex');
+        lightboxModal.addEventListener('click', (e) => {
+          if (e.target === lightboxModal) closeLightbox();
         });
-        document.getElementById('btn-reset-cancel').addEventListener('click', () => {
-          resetModal.classList.add('hidden');
-          resetModal.classList.remove('flex');
-        });
-        document.getElementById('btn-reset-confirm').addEventListener('click', () => {
-          openedDoors = {};
-          saveOpenedDoors();
-          renderAdventBoard();
-          resetModal.classList.add('hidden');
-          resetModal.classList.remove('flex');
-          playCraftSound('creak');
-        });
-
-        // Lightbox
-        document.getElementById('lightbox-modal').addEventListener('click', closeLightbox);
         document.getElementById('btn-close-lightbox').addEventListener('click', closeLightbox);
 
-        // Keyboard Navigation (Left/Right arrows, Escape, and A-Z for Hangman)
+        // Global shortcut blockers (Save, Print, View Source, DevTools)
         document.addEventListener('keydown', (e) => {
+          const keyLower = (e.key || '').toLowerCase();
+          const hasMod = e.ctrlKey || e.metaKey;
+
+          const isBlockedShortcut =
+            (hasMod && (keyLower === 's' || keyLower === 'p' || keyLower === 'u')) ||
+            e.key === 'F12' ||
+            (hasMod && e.shiftKey && (keyLower === 'i' || keyLower === 'j' || keyLower === 'c')) ||
+            (e.metaKey && e.altKey && (keyLower === 'i' || keyLower === 'j' || keyLower === 'u'));
+
+          if (isBlockedShortcut) {
+            e.preventDefault();
+            e.stopPropagation();
+            showPrivacyToast();
+            return;
+          }
+
           if (e.key === 'Escape') {
-            if (!document.getElementById('lightbox-modal').classList.contains('hidden')) {
+            if (!lightboxModal.classList.contains('hidden')) {
               closeLightbox();
             } else if (!resetModal.classList.contains('hidden')) {
               resetModal.classList.add('hidden');
